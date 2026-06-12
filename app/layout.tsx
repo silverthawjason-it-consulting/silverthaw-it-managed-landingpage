@@ -20,9 +20,9 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Silverthaw Consulting — Your Outsourced IT Department",
+  title: "Managed IT Services Provider in Toronto & Ontario | Silverthaw Consulting",
   description:
-    "Silverthaw Consulting is the dedicated, outsourced IT department for Ontario small and medium businesses. Managed IT, cybersecurity, software strategy — one partner, one accountability.",
+    "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy — one partner, full accountability.",
 };
 
 export default function RootLayout({
