@@ -82,8 +82,12 @@ const CARDS: {
 
 export default function Advantage() {
   const pillsContainerRef = useRef<HTMLDivElement>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
   const [visiblePills, setVisiblePills] = useState<boolean[]>(
     Array(PILLS.length).fill(false)
+  );
+  const [visibleCards, setVisibleCards] = useState<boolean[]>(
+    Array(CARDS.length).fill(false)
   );
 
   useEffect(() => {
@@ -93,31 +97,43 @@ export default function Advantage() {
 
     if (prefersReduced) {
       setVisiblePills(Array(PILLS.length).fill(true));
+      setVisibleCards(Array(CARDS.length).fill(true));
       return;
     }
 
-    const container = pillsContainerRef.current;
-    if (!container) return;
+    function makeObserver(
+      ref: React.RefObject<HTMLDivElement>,
+      count: number,
+      setter: React.Dispatch<React.SetStateAction<boolean[]>>
+    ) {
+      const el = ref.current;
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        (entries) => {
+          if (!entries[0].isIntersecting) return;
+          Array.from({ length: count }).forEach((_, i) => {
+            setTimeout(() => {
+              setter((prev) => {
+                const next = [...prev];
+                next[i] = true;
+                return next;
+              });
+            }, i * 100);
+          });
+          obs.disconnect();
+        },
+        { threshold: 0.15 }
+      );
+      obs.observe(el);
+      return () => obs.disconnect();
+    }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (!entries[0].isIntersecting) return;
-        PILLS.forEach((_, i) => {
-          setTimeout(() => {
-            setVisiblePills((prev) => {
-              const next = [...prev];
-              next[i] = true;
-              return next;
-            });
-          }, i * 100);
-        });
-        observer.disconnect();
-      },
-      { threshold: 0.15 }
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
+    const cleanupPills = makeObserver(pillsContainerRef, PILLS.length, setVisiblePills);
+    const cleanupCards = makeObserver(cardsContainerRef, CARDS.length, setVisibleCards);
+    return () => {
+      cleanupPills?.();
+      cleanupCards?.();
+    };
   }, []);
 
   return (
@@ -206,18 +222,23 @@ export default function Advantage() {
         </div>
 
         {/* ---- RIGHT: proof cards ---- */}
-        <div className="flex flex-col gap-5 pt-0 lg:pt-2">
-          {CARDS.map(({ label, stat, statLabel, body, delay }) => (
+        <div ref={cardsContainerRef} className="flex flex-col gap-5 pt-0 lg:pt-2">
+          {CARDS.map(({ label, stat, statLabel, body }, i) => (
             <div
               key={stat + label}
-              className={`reveal ${delay} group relative overflow-hidden rounded-card border border-[rgba(192,192,192,0.13)] bg-white/[0.05] p-[28px_30px] transition-[background,border-color] duration-[.25s] hover:border-[rgba(192,192,192,0.24)] hover:bg-white/[0.08]`}
+              className="group relative overflow-hidden rounded-card border border-[rgba(192,192,192,0.13)] bg-white/[0.05] p-[28px_30px] transition-[background,border-color] duration-[.25s] hover:border-[rgba(192,192,192,0.24)] hover:bg-white/[0.08]"
+              style={{
+                opacity: visibleCards[i] ? 1 : 0,
+                transform: visibleCards[i] ? "translateY(0)" : "translateY(12px)",
+                transition: "opacity 500ms ease-out, transform 500ms ease-out",
+              }}
             >
               <div className="mb-3 flex items-start justify-between gap-4">
-                <p className="font-serif text-[18px] font-bold leading-[1.25] text-white">
-                  {label.split("\n").map((line, i) => (
-                    <span key={i}>
+                <p className="min-w-0 font-serif text-[18px] font-bold leading-[1.25] text-white">
+                  {label.split("\n").map((line, j) => (
+                    <span key={j}>
                       {line}
-                      {i < label.split("\n").length - 1 && <br />}
+                      {j < label.split("\n").length - 1 && <br />}
                     </span>
                   ))}
                 </p>
@@ -225,7 +246,7 @@ export default function Advantage() {
                   <p className="font-serif text-[clamp(22px,2.4vw,30px)] font-extrabold leading-none text-white">
                     {stat}
                   </p>
-                  <span className="mt-1 block text-[10px] font-semibold uppercase tracking-[.1em] text-silver/50">
+                  <span className="mt-1 block max-w-[88px] text-[9.5px] font-semibold uppercase leading-[1.4] tracking-[.08em] text-silver/50">
                     {statLabel}
                   </span>
                 </div>
