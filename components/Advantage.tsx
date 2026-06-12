@@ -1,3 +1,7 @@
+"use client";
+
+import { useRef, useEffect, useState } from "react";
+
 const PILLS: { label: string; desc: string; path: React.ReactNode }[] = [
   {
     label: "Cybersecurity",
@@ -77,6 +81,45 @@ const CARDS: {
 ];
 
 export default function Advantage() {
+  const pillsContainerRef = useRef<HTMLDivElement>(null);
+  const [visiblePills, setVisiblePills] = useState<boolean[]>(
+    Array(PILLS.length).fill(false)
+  );
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReduced) {
+      setVisiblePills(Array(PILLS.length).fill(true));
+      return;
+    }
+
+    const container = pillsContainerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return;
+        PILLS.forEach((_, i) => {
+          setTimeout(() => {
+            setVisiblePills((prev) => {
+              const next = [...prev];
+              next[i] = true;
+              return next;
+            });
+          }, i * 100);
+        });
+        observer.disconnect();
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="difference"
@@ -119,18 +162,28 @@ export default function Advantage() {
           </h2>
 
           <p className="mb-11 max-w-[380px] text-[16px] leading-[1.78] text-white/55 lg:max-w-none">
-            Managed IT services aren't a stopgap — they're the infrastructure model built for how businesses actually scale. One flexible partner, a full team of specialists across every layer of technology, without the overhead of hiring and managing in-house staff. A fraction of the cost of
-            building it yourself.
+            Managed IT services aren&apos;t a stopgap — they&apos;re the infrastructure model built for how businesses actually scale. One flexible partner, a full team of specialists across every layer of technology, without the overhead of hiring and managing in-house staff. A fraction of the cost of building it yourself.
           </p>
 
           {/* service pills */}
-          <div className="overflow-hidden rounded-card border border-[rgba(192,192,192,0.14)]">
-            {PILLS.map(({ label, desc, path }) => (
+          <div
+            ref={pillsContainerRef}
+            className="overflow-hidden rounded-card border border-[rgba(192,192,192,0.14)]"
+          >
+            {PILLS.map(({ label, desc, path }, i) => (
               <div
                 key={label}
-                className="flex items-center gap-[14px] border-b border-[rgba(192,192,192,0.10)] px-[22px] py-4 transition-colors last:border-b-0 hover:bg-white/[0.04]"
+                className="flex items-start gap-[14px] border-b border-[rgba(192,192,192,0.10)] px-[22px] py-4 transition-colors last:border-b-0 hover:bg-white/[0.04]"
+                style={{
+                  opacity: visiblePills[i] ? 1 : 0,
+                  transform: visiblePills[i]
+                    ? "translateY(0)"
+                    : "translateY(12px)",
+                  transition:
+                    "opacity 500ms ease-out, transform 500ms ease-out",
+                }}
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-[rgba(192,192,192,0.10)]">
+                <div className="mt-[2px] flex h-8 w-8 shrink-0 items-center justify-center rounded-[8px] bg-[rgba(192,192,192,0.10)]">
                   <svg
                     viewBox="0 0 24 24"
                     className="h-[15px] w-[15px]"
@@ -143,7 +196,7 @@ export default function Advantage() {
                     {path}
                   </svg>
                 </div>
-                <p className="text-[13.5px] leading-[1.4] text-white/75">
+                <p className="min-w-0 text-[13.5px] leading-[1.5] text-white/75">
                   <strong className="font-semibold text-white">{label}</strong>{" "}
                   — {desc}
                 </p>
