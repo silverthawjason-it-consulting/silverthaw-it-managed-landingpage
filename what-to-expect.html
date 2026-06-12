@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What to Expect — Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================
+       DESIGN TOKENS — matches silverthaw.ca palette
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #022549;
+      --navy-mid:   #0a3a6b;
+      --silver-bg:  #f4f5f7;
+      --white:      #ffffff;
+      --text-body:  #3b4a5c;
+      --text-muted: #6b7a8d;
+
+      --f-serif: 'Playfair Display', Georgia, serif;
+      --f-sans:  'Open Sans', -apple-system, sans-serif;
+
+      --r:   16px;
+      --mw:  1200px;
+      --sp:  104px 24px;
+    }
+
+    body {
+      font-family: var(--f-sans);
+      color: var(--text-body);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Eyebrow */
+    .eyebrow {
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .eyebrow-navy { color: var(--navy); opacity: 0.45; }
+
+    /* Heading */
+    .heading {
+      font-family: var(--f-serif);
+      font-size: clamp(30px, 3.8vw, 50px);
+      font-weight: 700; color: var(--navy); line-height: 1.13;
+    }
+
+    /* Sub */
+    .sub {
+      font-size: 16.5px; color: var(--text-muted);
+      line-height: 1.75; max-width: 540px;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; }
+    .d2 { transition-delay: .16s; }
+    .d3 { transition-delay: .24s; }
+    .d4 { transition-delay: .32s; }
+
+    /* =====================================================
+       WHAT TO EXPECT SECTION
+    ===================================================== */
+    .hiw {
+      padding: var(--sp);
+      background: var(--silver-bg);
+      position: relative; overflow: hidden;
+    }
+
+    /* Subtle ambient glow top-right */
+    .hiw::before {
+      content: '';
+      position: absolute; top: -120px; right: -120px;
+      width: 420px; height: 420px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(2,37,73,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hiw__in { max-width: var(--mw); margin: 0 auto; }
+
+    /* Section header */
+    .hiw__head {
+      max-width: 600px; margin-bottom: 64px;
+    }
+    .hiw__head .eyebrow-navy { margin-bottom: 16px; }
+    .hiw__head .heading      { margin-bottom: 18px; }
+    .hiw__head .sub          { margin-top: 14px; }
+
+    /* Four-column step grid */
+    .hiw__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+
+    /* Connecting line between step dots */
+    .hiw__steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 1px;
+      background: linear-gradient(to right, var(--navy) 0%, rgba(2,37,73,.15) 100%);
+      z-index: 0;
+    }
+
+    .hiw__step {
+      display: flex; flex-direction: column;
+      align-items: flex-start;
+      padding: 0 28px 0 0;
+      position: relative; z-index: 1;
+    }
+    .hiw__step:last-child { padding-right: 0; }
+
+    /* Numbered dot */
+    .hiw__dot {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-serif); font-size: 19px; font-weight: 700;
+      margin-bottom: 28px; flex-shrink: 0;
+      box-shadow: 0 6px 20px rgba(2,37,73,.18);
+      position: relative; z-index: 2;
+    }
+
+    .hiw__step-title {
+      font-family: var(--f-serif);
+      font-size: 17px; font-weight: 700;
+      color: var(--navy); margin-bottom: 10px; line-height: 1.25;
+    }
+
+    .hiw__step-desc {
+      font-size: 13.5px; color: var(--text-muted); line-height: 1.72;
+    }
+
+    /* Timeline tag — e.g. "Day 1", "Week 2" */
+    .hiw__step-tag {
+      display: inline-block; margin-top: 14px;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--navy); opacity: .45;
+    }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 1024px) {
+      .hiw__steps { grid-template-columns: repeat(2, 1fr); gap: 44px; }
+      .hiw__steps::before { display: none; }
+      .hiw__step { padding-right: 0; }
+    }
+    @media (max-width: 640px) {
+      :root { --sp: 72px 20px; }
+      .hiw__steps { grid-template-columns: 1fr; gap: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     WHAT TO EXPECT — HOW IT WORKS
+===================================================== -->
+<section class="hiw" id="how-it-works">
+  <div class="hiw__in">
+
+    <div class="hiw__head">
+      <p class="eyebrow eyebrow-navy reveal">What to Expect</p>
+      <h2 class="heading reveal d1">From First Call to<br>Fully Managed.</h2>
+      <p class="sub reveal d2">Four clear steps. No long sales cycles, no guesswork, no hidden complexity — just a straightforward path to having your IT handled by people who actually know what they're doing.</p>
+    </div>
+
+    <div class="hiw__steps">
+
+      <div class="hiw__step reveal d1">
+        <div class="hiw__dot">1</div>
+        <h3 class="hiw__step-title">Discovery Call<br>with Jason</h3>
+        <p class="hiw__step-desc">A 30-minute conversation — no slides, no pitch deck. Jason listens to how your business runs, what's working, and where technology is getting in the way.</p>
+        <span class="hiw__step-tag">Day 1</span>
+      </div>
+
+      <div class="hiw__step reveal d2">
+        <div class="hiw__dot">2</div>
+        <h3 class="hiw__step-title">IT Environment<br>Assessment</h3>
+        <p class="hiw__step-desc">We audit your current infrastructure — network, security posture, software stack, and backup practices — and map it against where your business is headed.</p>
+        <span class="hiw__step-tag">Week 1</span>
+      </div>
+
+      <div class="hiw__step reveal d3">
+        <div class="hiw__dot">3</div>
+        <h3 class="hiw__step-title">Your IT Roadmap<br>Delivered</h3>
+        <p class="hiw__step-desc">You receive a clear technology roadmap: what needs attention now, what to plan for, and exactly what Silverthaw will own on your behalf going forward.</p>
+        <span class="hiw__step-tag">Week 2</span>
+      </div>
+
+      <div class="hiw__step reveal d4">
+        <div class="hiw__dot">4</div>
+        <h3 class="hiw__step-title">Proactive Management<br>Begins</h3>
+        <p class="hiw__step-desc">24/7 monitoring goes live, helpdesk access is active, and your first monthly IT status meeting is scheduled. Your technology is now being managed — not just supported.</p>
+        <span class="hiw__step-tag">Week 3 onward</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -36px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Silverthaw Advantage — Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =====================================================
+       DESIGN TOKENS — matches silverthaw.ca palette
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #022549;
+      --navy-mid:   #0a3a6b;
+      --navy-dark:  #011a35;
+      --silver:     #c0c0c0;
+      --white:      #ffffff;
+      --text-body:  #3b4a5c;
+      --text-muted: #6b7a8d;
+
+      --f-serif: 'Playfair Display', Georgia, serif;
+      --f-sans:  'Open Sans', -apple-system, sans-serif;
+
+      --r:   16px;
+      --mw:  1200px;
+      --sp:  104px 24px;
+    }
+
+    body {
+      font-family: var(--f-sans);
+      color: var(--text-body);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* Eyebrow */
+    .eyebrow {
+      font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    /* Button */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px;
+      padding: 13px 26px; border-radius: 50px;
+      font-family: var(--f-sans); font-size: 13.5px; font-weight: 600;
+      cursor: pointer; transition: all .22s ease;
+      border: 2px solid transparent; white-space: nowrap;
+    }
+    .btn-white { background: var(--white); color: var(--navy); border-color: var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
+    .arrow-box {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--navy); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s;
+    }
+    .arrow-box svg { width: 9px; height: 9px; fill: none; stroke: white; }
+    .btn:hover .arrow-box { transform: translate(3px,-3px); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; }
+    .d2 { transition-delay: .16s; }
+    .d3 { transition-delay: .24s; }
+    .d4 { transition-delay: .32s; }
+
+    /* =====================================================
+       THE SILVERTHAW ADVANTAGE SECTION
+    ===================================================== */
+    .diff {
+      background: var(--navy);
+      padding: var(--sp);
+      position: relative; overflow: hidden;
+    }
+
+    /* Ambient light — top-right */
+    .diff::before {
+      content: '';
+      position: absolute; top: -220px; right: -220px;
+      width: 680px; height: 680px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(10,58,107,.6) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* Shadow depth — bottom-left */
+    .diff::after {
+      content: '';
+      position: absolute; bottom: -160px; left: -100px;
+      width: 440px; height: 440px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(1,26,53,.8) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Asymmetric two-column grid */
+    .diff__in {
+      max-width: var(--mw); margin: 0 auto;
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 5fr 7fr;
+      gap: 72px; align-items: start;
+    }
+
+    /* ---- LEFT: anchor statement + service pills ---- */
+    .diff__left .eyebrow { margin-bottom: 20px; }
+
+    .diff__h2 {
+      font-family: var(--f-serif);
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 800; color: var(--white);
+      line-height: 1.08; margin-bottom: 22px;
+    }
+    .diff__h2 em { font-style: italic; color: rgba(192,192,192,.75); }
+
+    .diff__lead {
+      font-size: 16px; color: rgba(255,255,255,.55);
+      line-height: 1.78; margin-bottom: 44px; max-width: 380px;
+    }
+
+    /* Service coverage pill list */
+    .diff__pills {
+      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid rgba(192,192,192,.14);
+      border-radius: var(--r); overflow: hidden;
+    }
+    .diff__pill {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 22px;
+      border-bottom: 1px solid rgba(192,192,192,.1);
+      transition: background .2s;
+    }
+    .diff__pill:last-child { border-bottom: none; }
+    .diff__pill:hover { background: rgba(255,255,255,.04); }
+
+    .diff__pill-icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: rgba(192,192,192,.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .diff__pill-icon svg {
+      width: 15px; height: 15px; stroke: rgba(192,192,192,.8);
+      fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .diff__pill-text { font-size: 13.5px; color: rgba(255,255,255,.75); line-height: 1.4; }
+    .diff__pill-text strong { color: var(--white); font-weight: 600; }
+
+    /* ---- RIGHT: proof cards ---- */
+    .diff__right {
+      display: flex; flex-direction: column; gap: 20px;
+      padding-top: 8px;
+    }
+
+    .diff__card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(192,192,192,.13);
+      border-radius: var(--r); padding: 28px 30px;
+      position: relative; overflow: hidden;
+      transition: background .25s, border-color .25s;
+    }
+    .diff__card:hover {
+      background: rgba(255,255,255,.08);
+      border-color: rgba(192,192,192,.24);
+    }
+
+    .diff__card-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .diff__card-label {
+      font-family: var(--f-serif); font-size: 18px; font-weight: 700;
+      color: var(--white); line-height: 1.25;
+    }
+
+    .diff__card-stat {
+      font-family: var(--f-serif); font-size: clamp(22px, 2.4vw, 30px);
+      font-weight: 800; color: var(--white);
+      line-height: 1; white-space: nowrap; text-align: right; flex-shrink: 0;
+    }
+    .diff__card-stat span {
+      display: block; font-family: var(--f-sans);
+      font-size: 10px; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(192,192,192,.5);
+      margin-top: 4px; text-align: right;
+    }
+
+    .diff__card-body {
+      font-size: 13.5px; color: rgba(255,255,255,.52); line-height: 1.72;
+    }
+
+    /* Bottom accent line on each card */
+    .diff__card-accent {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(to right, rgba(192,192,192,.35) 0%, transparent 80%);
+    }
+
+    /* ---- CLOSING BAR ---- */
+    .diff__close {
+      grid-column: 1 / -1;
+      margin-top: 12px; padding-top: 40px;
+      border-top: 1px solid rgba(192,192,192,.12);
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 40px; flex-wrap: wrap;
+    }
+    .diff__close-copy {
+      font-family: var(--f-serif); font-size: clamp(18px, 2vw, 24px);
+      font-weight: 600; color: rgba(255,255,255,.82); line-height: 1.35;
+      max-width: 580px;
+    }
+    .diff__close-copy em { font-style: italic; color: var(--white); }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+    @media (max-width: 1024px) {
+      .diff__in  { grid-template-columns: 1fr; gap: 52px; }
+      .diff__lead { max-width: 100%; }
+      .diff__close { flex-direction: column; align-items: flex-start; gap: 24px; }
+    }
+    @media (max-width: 640px) {
+      :root { --sp: 72px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =====================================================
+     THE SILVERTHAW ADVANTAGE
+===================================================== -->
+<section class="diff" id="difference">
+  <div class="diff__in">
+
+    <!-- LEFT: anchor statement + service coverage pills -->
+    <div class="diff__left reveal">
+      <p class="eyebrow">The Silverthaw Advantage</p>
+      <h2 class="diff__h2">
+        The Only Partner<br>
+        That Grows<br>
+        <em>With You.</em>
+      </h2>
+      <p class="diff__lead">
+        Managed IT services aren't a stopgap — they're the infrastructure model built for how businesses actually scale. One partner, every layer of technology, a fraction of the cost of building it yourself.
+      </p>
+
+      <div class="diff__pills">
+        <div class="diff__pill">
+          <div class="diff__pill-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <p class="diff__pill-text"><strong>Cybersecurity</strong> — continuous threat monitoring, endpoint protection, incident response</p>
+        </div>
+        <div class="diff__pill">
+          <div class="diff__pill-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <p class="diff__pill-text"><strong>Infrastructure &amp; Cloud</strong> — network, servers, cloud migration, configuration and upkeep</p>
+        </div>
+        <div class="diff__pill">
+          <div class="diff__pill-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <p class="diff__pill-text"><strong>Software Strategy</strong> — vendor-neutral selection, implementation oversight, staff training</p>
+        </div>
+        <div class="diff__pill">
+          <div class="diff__pill-icon">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <p class="diff__pill-text"><strong>Helpdesk &amp; IT Support</strong> — live support with an average response under 15 minutes</p>
+        </div>
+        <div class="diff__pill">
+          <div class="diff__pill-icon">
+            <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></svg>
+          </div>
+          <p class="diff__pill-text"><strong>Data Backup &amp; Disaster Recovery</strong> — automated, tested, off-site, and ready to deploy</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: four proof cards with anchored statistics -->
+    <div class="diff__right">
+
+      <div class="diff__card reveal d1">
+        <div class="diff__card-top">
+          <p class="diff__card-label">24/7 Coverage.<br>Every Layer.</p>
+          <div class="diff__card-stat">24/7<span>always on</span></div>
+        </div>
+        <p class="diff__card-body">Your business doesn't run on business hours — and neither do we. Round-the-clock network monitoring, after-hours helpdesk, and continuous threat detection mean problems get caught at 2am the same as 2pm. No gaps, no handoffs, no waiting until morning.</p>
+        <div class="diff__card-accent"></div>
+      </div>
+
+      <div class="diff__card reveal d2">
+        <div class="diff__card-top">
+          <p class="diff__card-label">A Full Team.<br>A Fraction of the Cost.</p>
+          <div class="diff__card-stat">60%+<span>avg. savings vs. in-house</span></div>
+        </div>
+        <p class="diff__card-body">A single IT hire in Ontario costs $60,000 before benefits — and covers maybe two or three disciplines. Silverthaw brings cybersecurity, cloud, networking, compliance, and strategic planning under one monthly investment. You get more capability, zero recruitment overhead, and a cost structure that's predictable as you grow.</p>
+        <div class="diff__card-accent"></div>
+      </div>
+
+      <div class="diff__card reveal d3">
+        <div class="diff__card-top">
+          <p class="diff__card-label">Grows With<br>Your Business.</p>
+          <div class="diff__card-stat">Scalable<span>no renegotiating</span></div>
+        </div>
+        <p class="diff__card-body">Hiring and managing IT staff doesn't scale cleanly — headcount decisions lag behind growth, and skills gaps appear when you can least afford them. Managed IT services flex with you. Whether you're adding a department, opening a second location, or migrating to the cloud, the same partner who knows your business handles it.</p>
+        <div class="diff__card-accent"></div>
+      </div>
+
+      <div class="diff__card reveal d4">
+        <div class="diff__card-top">
+          <p class="diff__card-label">One Relationship.<br>Full Accountability.</p>
+          <div class="diff__card-stat">1<span>partner, not a vendor pool</span></div>
+        </div>
+        <p class="diff__card-body">Most businesses juggle three to five IT vendors with no single owner. When something breaks, everyone points elsewhere. Silverthaw holds the whole picture — infrastructure, security, software, and strategy — so there is always one person accountable: Jason. Not a ticket queue. A name you can call.</p>
+        <div class="diff__card-accent"></div>
+      </div>
+
+    </div>
+
+    <!-- CLOSING BAR -->
+    <div class="diff__close">
+      <p class="diff__close-copy">
+        Technology that used to require an enterprise budget.<br>
+        <em>Now built for businesses like yours.</em>
+      </p>
+      <a href="#contact" class="btn btn-white">
+        See What This Looks Like for Your Business
+        <span class="arrow-box">
+          <svg viewBox="0 0 9 9" fill="none" stroke-width="2.5" stroke-linecap="round">
+            <path d="M1.5 7.5L7.5 1.5M7.5 1.5H3.5M7.5 1.5V5.5"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
+    { threshold: 0.1, rootMargin: '0px 0px -36px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+## Product Context
+See `IT-MANAGED-silverthaw-product-marketing-context-v2.md` for full business context, positioning, and messaging. Read this before generating any copy, headings, or content for this site.
+See `Branding-Global-Style-Silverthaw` When generating frontend code landing page copy, or design recommendations for Silverthaw, you must strictly adhere to the following branding global design system.
