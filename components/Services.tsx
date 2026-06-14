@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const S = {
   viewBox: "0 0 24 24",
@@ -174,6 +174,17 @@ const SERVICES: Service[] = [
 
 export default function Services() {
   const [open, setOpen] = useState<number | null>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  function handleToggle(i: number) {
+    const isNowOpening = open !== i;
+    setOpen(isNowOpening ? i : null);
+    if (isNowOpening) {
+      setTimeout(() => {
+        itemRefs.current[i]?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 120);
+    }
+  }
 
   return (
     <section
@@ -203,8 +214,9 @@ export default function Services() {
             return (
               <div
                 key={svc.name}
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="group cursor-pointer rounded-card bg-silver-bg p-6 shadow-soft transition-[transform,box-shadow] duration-[.25s] ease-in-out hover:scale-[0.97] hover:shadow-none sm:p-7"
+                ref={(el) => { itemRefs.current[i] = el; }}
+                onClick={() => handleToggle(i)}
+                className="group cursor-pointer rounded-card bg-silver-bg p-6 shadow-soft transition-[transform,box-shadow] duration-[.25s] ease-in-out hover:scale-[0.97] hover:shadow-none scroll-mt-24 sm:p-7"
               >
                 {/* Icon */}
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white text-navy shadow-[0_1px_6px_rgba(2,37,73,0.10)]">
