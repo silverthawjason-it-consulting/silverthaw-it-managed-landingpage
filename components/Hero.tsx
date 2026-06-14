@@ -37,11 +37,9 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
 
           <p className="reveal d2 mb-10 max-w-[460px] text-[16.5px] leading-[1.78] text-white/[0.62]">
             Silverthaw Consulting delivers managed IT services for small and
-            medium businesses across Toronto and Ontario. We become your
-            dedicated, outsourced IT department — handling IT support,
-            cybersecurity, infrastructure, and software strategy under one
-            cost-effective, always-on partnership — so you can focus on growing
-            your business.
+            medium businesses across Toronto and Ontario. We take full ownership of your technology
+             — IT support, cybersecurity, infrastructure, and software strategy — under one proactive, always-on partnership. 
+             So you can stop managing technology and get back to running your business.
           </p>
 
           {/* botones */}
@@ -90,7 +88,7 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
               <strong className="block text-white/[0.85]">
                 Trusted by Ontario businesses
               </strong>
-              Professional IT Managed Providers
+              Professional Managed IT Provider
             </p>
           </div>
         </div>

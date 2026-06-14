@@ -53,29 +53,20 @@ export default function About() {
           <h2 className="reveal d1 mb-[22px] font-serif text-[clamp(28px,3.5vw,44px)] font-bold leading-[1.18] text-navy">
             You Don&apos;t Get a
             <br />
-            Ticket Number.
+            Ticket Queue.
             <br />
-            You Get Jason.
+            You Get a Dedicated Advisor.
           </h2>
           <div className="reveal d2 mb-[30px] text-[15.5px] leading-[1.82] text-ink-body [&>p+p]:mt-[14px]">
             <p>
-              Jason Saunders has spent 25+ years at the intersection of
-              enterprise technology and business strategy — advising at Oracle,
-              SAP, and across hundreds of Ontario companies at every stage of
-              growth.
+              Jason Saunders has spent 25+ years at the intersection of enterprise technology and business strategy 
+              — advising at Oracle, SAP, and across hundreds of Ontario companies at every stage of growth.
             </p>
             <p>
-              When you work with Silverthaw, Jason is your strategic IT advisor.
-              He learns your business, defines the technology roadmap, and
-              coordinates a team of specialist IT professionals — helpdesk,
-              cybersecurity, infrastructure, cloud — who execute the work on
-              your behalf. You get the depth of a full IT department, with Jason
-              as the single person accountable for all of it.
+              When you work with Silverthaw, Jason is your strategic IT advisor and the single point of accountability for everything Silverthaw delivers. He learns your business, defines your technology roadmap, and manages a dedicated team of IT specialists — helpdesk, cybersecurity, infrastructure, and cloud — who execute on your behalf. You get the depth of a full IT department, guided by an advisor who understands your business goals, not just your ticket queue.
             </p>
             <p>
-              Not a ticket queue. Not a rotating cast of technicians. A named
-              advisor who knows your business — backed by the right people for
-              every layer of the job.
+              Not a rotating cast of anonymous technicians. A named advisor who owns the relationship — backed by the right specialists for every layer of the job.
             </p>
           </div>
 
