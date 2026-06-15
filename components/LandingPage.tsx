@@ -21,8 +21,8 @@ export default function LandingPage({ location }: LandingPageProps) {
       <Nav />
       <main>
         <Hero location={location} />
-        <Advantage />
         <Services />
+        <Advantage />
         <WhatToExpect />
         <About />
         <Testimonials />
