@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import type { ServicesContent } from "@/content/types";
 
 const S = {
   viewBox: "0 0 24 24",
@@ -56,123 +57,7 @@ const ICONS = {
   ),
 };
 
-type IconKey = keyof typeof ICONS;
-
-type Service = {
-  icon: IconKey;
-  name: string;
-  summary: string;
-  extended: string;
-  bullets: string[];
-};
-
-const SERVICES: Service[] = [
-  {
-    icon: "rocket",
-    name: "Startup IT Foundation",
-    summary:
-      "Launch with the right IT services for your small business in place from day one. We build your technology foundation — hardware, software, cloud, and security — lean, protected, and ready to scale from the moment you open the doors.",
-    extended:
-      "Getting your technology right at the start saves years of costly fixes later. We set up your complete IT foundation and provide ongoing outsourced IT support so your business is operational, protected, and ready to grow — without building an internal team to manage it.",
-    bullets: [
-      "Website domain registration and hosting setup",
-      "Workstation and server procurement, deployment, and configuration for your team",
-      "Microsoft 365, business email, and cloud backup — fully set up and secured",
-      "Endpoint protection and data security built into your systems from day one",
-      "IT help desk support via phone, email, and remote access immediately available to your team",
-      "Dark web monitoring and anti-phishing awareness training",
-      "Employee onboarding/offboarding and disaster recovery planning",
-      "Monthly IT status updates and quarterly technology planning as your business grows",
-    ],
-  },
-  {
-    icon: "monitor",
-    name: "Managed IT Services",
-    summary:
-      "Your complete outsourced IT department in Toronto and across Ontario — proactive monitoring, IT help desk support, patch management, and on-site response. Issues resolved before your team notices them.",
-    extended:
-      "We begin with an assessment of your current environment and where your business is headed. From there, the Silverthaw team build a managed IT services package tailored to your operations — and take full ownership of your technology: helpdesk, security, infrastructure, and strategic planning.",
-    bullets: [
-      "Real-time help desk support via phone, email, and ticketing — average response time under 15 minutes",
-      "24/7 network monitoring for uptime, performance, and security",
-      "Remote IT support and troubleshooting resolved without disrupting your operations",
-      "Server monitoring, performance tuning, and operating system patch management",
-      "Automated endpoint patch management across all devices on your network",
-      "Firewall, router, and switch configuration, monitoring, and ongoing management",
-      "Secure remote access for hybrid and remote teams",
-      "Monthly IT status updates and quarterly technology reviews included",
-    ],
-  },
-  {
-    icon: "lightbulb",
-    name: "IT Consulting & Software Selection",
-    summary:
-      "Strategic IT consulting services backed by 25+ years on the vendor side — at Oracle, SAP, and across the Ontario partner ecosystem. We assess your systems, identify what is holding you back, and map the right path forward.",
-    extended:
-      "We bridge the gap between high-level business strategy and technical execution. By running a clear, vendor-neutral procurement process, we shield your organization from vendor bias. This keeps your technology investments focused strictly on your operational needs and ROI, giving you the exact systems you need to scale—minus the sales pitch.",
-    bullets: [
-      "In-depth analysis of your existing IT systems and infrastructure and security posture",
-      "Diagnosis of IT weaknesses, bottlenecks, and security gaps",
-      "Strategic technology roadmap with timeline, budget guidance, and defined next steps",
-      "Transparent quoting and cost analysis for recommended solutions",
-      "Vendor-neutral software selection — requirements definition, request for proposal management, vendor scoring, and demo oversight across 100+ systems",
-      "IT consulting deliverables at every stage: process maps, requirements lists, vendor scorecards, and final selection reports",
-    ],
-  },
-  {
-    icon: "clipboard",
-    name: "Project Management & Implementation",
-    summary:
-      "From scope to go-live — we plan, coordinate, and deliver your IT projects as a full-service IT solutions provider. On time, on budget, with a dedicated project lead accountable for every task.",
-    extended:
-      "IT projects fail when no one owns the full picture. Silverthaw does. Whether you're building out a new office, deploying a business system, expanding a department, or rolling out new infrastructure, we manage the entire project as your dedicated IT consulting and services partner — scope, budget, timeline, team coordination, and delivery. You stay informed at every stage. We handle everything in between.",
-    bullets: [
-      "Project scope definition and collaborative planning",
-      "Strategic budgeting across systems, infrastructure, and personnelresources",
-      "Detailed project roadmap with milestones, timelines, and accountable owners at each stage",
-      "End-to-end implementation of hardware, software, and network systems",
-      "Smart office deployment — meeting systems, telephony, workstation rollouts, secure server installation",
-      "Comprehensive training and ongoing support after go-live",
-      "Professional cable management and physical infrastructure optimization",
-    ],
-  },
-  {
-    icon: "shield",
-    name: "Cybersecurity & Protection",
-    summary:
-      "Continuous cybersecurity services for your data, devices, and team — monitored around the clock, managed on your behalf. Enterprise-grade IT security services without the enterprise-grade budget.",
-    extended:
-      "Small and medium businesses are the primary targets for cyberattacks — precisely because most are underprotected. Silverthaw wraps a managed cybersecurity services layer around your entire technology environment: devices, email, network, and credentials. Your team keeps working. Your systems stay protected. And when a threat appears, our IT security team responds immediately.",
-    bullets: [
-      "Advanced threat detection and real-time incident response",
-      "Managed antivirus, anti-malware, and endpoint protection across all devices",
-      "Firewall configuration, continuous monitoring, and ongoing management",
-      "Email security with phishing protection and spam filtering",
-      "Anti-phishing awareness training for your team",
-      "Dark web monitoring to detect compromised credentials",
-      "Regular security audits, compliance assessments, and ransomware response planning",
-    ],
-  },
-  {
-    icon: "database",
-    name: "Data Retention & Disaster Recovery",
-    summary:
-      "Your data survives anything — ransomware, hardware failure, or a server room flood. Tested backup and recovery built around your operations, so your business keeps running when the unexpected happens.",
-    extended:
-      "A backup that has never been tested is not a backup — it is an assumption. Silverthaw designs, automates, and regularly tests your entire backup and disaster recovery infrastructure as part of your managed IT support services. When data loss or an outage occurs, your business is back online fast, with your data intact and your operations uninterrupted.",
-    bullets: [
-      "Automated, encrypted backups — both local and cloud-based",
-      "Disaster recovery plans designed around your specific operations",
-      "Regular testing of backup integrity and restore processes",
-      "Fast recovery options to minimize downtime after any incident",
-      "Off-site and cloud storage for complete redundancy across physical and digital threats",
-      "Network and recovery procedure documentation",
-      "Scalable backup architecture that grows with your data volume and business complexity",
-    ],
-  },
-];
-
-export default function Services() {
+export default function Services({ content }: { content: ServicesContent }) {
   const [open, setOpen] = useState<number | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -195,21 +80,24 @@ export default function Services() {
         {/* Header */}
         <div className="mb-[52px]">
           <p className="reveal mb-[16px] text-[10.5px] font-bold uppercase tracking-[0.2em] text-navy/[0.45]">
-            Our Services
+            {content.eyebrow}
           </p>
           <h2 className="reveal d1 font-serif text-[clamp(30px,3.8vw,50px)] font-bold leading-[1.13] text-navy">
-            Everything Your Business
-            <br />
-            Needs. Under One Roof.
+            {content.headingLines.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < content.headingLines.length - 1 && <br />}
+              </span>
+            ))}
           </h2>
           <p className="reveal d2 mt-[14px] max-w-[540px] text-[16.5px] leading-[1.75] text-ink-muted">
-            Managed IT services, IT support, IT consulting, and cybersecurity for small and medium businesses — from daily helpdesk support to long-term technology strategy, Silverthaw manages the full lifecycle.
+            {content.subheadline}
           </p>
         </div>
 
         {/* Service cards grid */}
         <div className="reveal d1 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((svc, i) => {
+          {content.items.map((svc, i) => {
             const isOpen = open === i;
             return (
               <div

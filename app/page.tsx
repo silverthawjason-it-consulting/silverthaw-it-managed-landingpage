@@ -1,6 +1,7 @@
 import LandingPage from "@/components/LandingPage";
+import managedIT from "@/content/managedIT";
 
-// Home — sin parámetros: el Hero usa los defaults "Ontario" / "an IT Department".
+// Home — variante A ("Managed IT Services"). El Hero usa el default "Toronto".
 export default function Home() {
-  return <LandingPage />;
+  return <LandingPage content={managedIT} />;
 }

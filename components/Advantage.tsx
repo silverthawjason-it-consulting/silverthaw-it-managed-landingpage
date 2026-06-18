@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import type { AdvantageContent } from "@/content/types";
 
 const PILLS: { label: string; desc: string; path: React.ReactNode }[] = [
   {
@@ -43,44 +44,8 @@ const PILLS: { label: string; desc: string; path: React.ReactNode }[] = [
   },
 ];
 
-const CARDS: {
-  label: string;
-  stat: string;
-  statLabel: string;
-  body: string;
-  delay: string;
-}[] = [
-  {
-    label: "24/7 Coverage.\nEvery Layer.",
-    stat: "24/7",
-    statLabel: "always on",
-    body: "Your business keeps moving after hours — and so does your IT coverage. Round-the-clock network monitoring, after-hours helpdesk, and continuous threat detection mean your systems are watched and protected at all times.",
-    delay: "d1",
-  },
-  {
-    label: "A Full Team.\nA Fraction of the Cost.",
-    stat: "60%+",
-    statLabel: "avg. savings vs. in-house",
-    body: "Building an internal IT team in Ontario means $60,000+ per hire — and each person covers only two or three disciplines. Silverthaw brings cybersecurity, cloud, networking, compliance, and strategic advisory under one predictable monthly investment. More capability, no recruitment overhead, and a cost structure that actually scales with your business.",
-    delay: "d2",
-  },
-  {
-    label: "Grows With\nYour Business.",
-    stat: "Scalable",
-    statLabel: "no renegotiating",
-    body: "As your business grows, your technology needs to keep pace — without the delay of hiring cycles or the risk of skills gaps at the wrong moment. Silverthaw scales with you. Whether you're adding a department, opening a second location, or migrating to the cloud, the same team that knows your business handles it — no renegotiating, no onboarding from scratch.",
-    delay: "d3",
-  },
-  {
-    label: "One Relationship.\nFull Accountability.",
-    stat: "1",
-    statLabel: "partner, not a vendor pool",
-    body: "Most businesses juggle three to five IT vendors with no single owner of the full picture. Silverthaw changes that. One partner holds your infrastructure, security, software, and strategy — with Jason as the dedicated advisor who owns the relationship and coordinates every specialist working on your behalf. One call. Full accountability.",
-    delay: "d4",
-  },
-];
-
-export default function Advantage() {
+export default function Advantage({ content }: { content: AdvantageContent }) {
+  const CARDS = content.cards;
   const pillsContainerRef = useRef<HTMLDivElement>(null);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const [visiblePills, setVisiblePills] = useState<boolean[]>(
@@ -166,19 +131,27 @@ export default function Advantage() {
         {/* ---- LEFT: statement + service pills ---- */}
         <div className="reveal">
           <p className="mb-5 text-[10.5px] font-bold uppercase tracking-[0.2em] text-silver">
-            The Silverthaw Advantage
+            {content.eyebrow}
           </p>
 
           <h2 className="mb-[22px] font-serif text-[clamp(34px,4vw,56px)] font-extrabold leading-[1.08] text-white">
-            The Only Partner
-            <br />
-            That Grows
-            <br />
-            <em className="italic text-silver/[0.75]">With You.</em>
+            {content.headingLines.map((line, i) => {
+              const isLast = i === content.headingLines.length - 1;
+              return (
+                <span key={i}>
+                  {isLast ? (
+                    <em className="italic text-silver/[0.75]">{line}</em>
+                  ) : (
+                    line
+                  )}
+                  {!isLast && <br />}
+                </span>
+              );
+            })}
           </h2>
 
           <p className="mb-11 max-w-[380px] text-[16px] leading-[1.78] text-white/55 lg:max-w-none">
-            Managed IT services aren&apos;t a stopgap — they&apos;re the infrastructure model built for how businesses actually scale. One flexible partner, a full team of specialists across every layer of technology, without the overhead of hiring and managing in-house staff. A fraction of the cost of building it yourself.
+            {content.subheadline}
           </p>
 
           {/* service pills */}
@@ -269,17 +242,15 @@ export default function Advantage() {
         {/* ---- CLOSING BAR — spans full grid ---- */}
         <div className="col-span-full mt-3 flex flex-col items-start justify-between gap-6 border-t border-[rgba(192,192,192,0.12)] pt-10 sm:flex-row sm:items-center sm:gap-10">
           <p className="font-serif text-[clamp(18px,2vw,24px)] font-semibold leading-[1.35] text-white/[0.82]">
-            Technology that used to require an enterprise budget.
+            {content.closing.lead}
             <br />
-            <em className="italic text-white">
-              Now built for businesses like yours.
-            </em>
+            <em className="italic text-white">{content.closing.em}</em>
           </p>
           <a
             href="#contact"
             className="group inline-flex shrink-0 items-center gap-[9px] whitespace-nowrap rounded-full border-2 border-white bg-white px-[26px] py-[13px] text-[13.5px] font-semibold text-navy transition-all duration-[.22s] hover:bg-transparent hover:text-white"
           >
-            See What This Looks Like for Your Business
+            {content.closingCta}
             <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy transition-transform duration-200 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]">
               <svg
                 viewBox="0 0 9 9"

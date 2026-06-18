@@ -1,13 +1,17 @@
 import UnsplashImage from "./UnsplashImage";
+import type { HeroContent } from "@/content/types";
 
 const FACES = ["LQ", "AC", "TS", "PH"];
 
 type HeroProps = {
   /** Ubicación inyectada por la ruta dinámica (Ads/A-B). Default: "Toronto". */
   location?: string;
+  /** Copy del variante A/B. */
+  content: HeroContent;
 };
 
-export default async function Hero({ location = "Toronto" }: HeroProps) {
+export default async function Hero({ location = "Toronto", content }: HeroProps) {
+  const eyebrow = content.eyebrow.replace(/\{location\}/g, location);
   return (
     <section
       id="hero"
@@ -27,19 +31,16 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
         {/* ---- Izquierda: copy ---- */}
         <div>
           <p className="reveal mb-[22px] text-[10.5px] font-bold uppercase tracking-[0.2em] text-silver/60">
-            Toronto · {location} · Managed IT Services
+            {eyebrow}
           </p>
 
           <h1 className="reveal d1 mb-[26px] font-serif text-[clamp(40px,5vw,66px)] font-extrabold leading-[1.08] text-white">
-            Managed IT Services in{" "}
+            {content.headlinePrefix}{" "}
             <em className="italic text-silver/[0.88]">{location}</em>
           </h1>
 
           <p className="reveal d2 mb-10 max-w-[460px] text-[16.5px] leading-[1.78] text-white/[0.62]">
-            Silverthaw Consulting delivers managed IT services for small and
-            medium businesses across Toronto and Ontario. We take full ownership of your technology
-             — IT support, cybersecurity, infrastructure, and software strategy — under one proactive, always-on partnership. 
-             So you can stop managing technology and get back to running your business.
+            {content.subheadline}
           </p>
 
           {/* botones */}
@@ -48,7 +49,7 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
               href="#contact"
               className="group inline-flex items-center gap-[9px] whitespace-nowrap rounded-full border-2 border-white bg-white px-[26px] py-[13px] text-[13.5px] font-semibold text-navy transition-all duration-[.22s] hover:bg-transparent hover:text-white"
             >
-              Book Your Free Consultation
+              {content.primaryCta}
               <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-navy transition-transform duration-200 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]">
                 <svg
                   viewBox="0 0 9 9"
@@ -66,7 +67,7 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
               href="#services"
               className="inline-flex items-center gap-[9px] whitespace-nowrap rounded-full border-2 border-[rgba(192,192,192,.35)] bg-transparent px-[26px] py-[13px] text-[13.5px] font-semibold text-white/[0.78] transition-all duration-[.22s] hover:border-white/60 hover:text-white"
             >
-              See Our Services
+              {content.secondaryCta}
             </a>
           </div>
 
@@ -86,9 +87,9 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
             </div>
             <p className="text-[12.5px] leading-[1.5] text-white/[0.48]">
               <strong className="block text-white/[0.85]">
-                Trusted by Ontario businesses
+                {content.socialProofStrong}
               </strong>
-              Professional Managed IT Provider
+              {content.socialProofSub}
             </p>
           </div>
         </div>
@@ -134,12 +135,15 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
             </div>
             <div>
               <p className="mb-[3px] text-[10px] font-bold uppercase tracking-[.1em] opacity-55">
-                Protection
+                {content.chip1.eyebrow}
               </p>
               <p className="font-serif text-[14.5px] font-bold leading-[1.25]">
-                24/7 Security
-                <br />
-                Monitoring
+                {content.chip1.title.split("\n").map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i < content.chip1.title.split("\n").length - 1 && <br />}
+                  </span>
+                ))}
               </p>
             </div>
           </div>
@@ -162,12 +166,15 @@ export default async function Hero({ location = "Toronto" }: HeroProps) {
             </div>
             <div>
               <p className="mb-[3px] text-[10px] font-bold uppercase tracking-[.1em] opacity-55">
-                Our Approach
+                {content.chip2.eyebrow}
               </p>
               <p className="font-serif text-[14.5px] font-bold leading-[1.25]">
-                Proactive,
-                <br />
-                Not Reactive
+                {content.chip2.title.split("\n").map((line, i) => (
+                  <span key={i}>
+                    {line}
+                    {i < content.chip2.title.split("\n").length - 1 && <br />}
+                  </span>
+                ))}
               </p>
             </div>
           </div>
