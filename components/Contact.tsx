@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { getStoredAttribution } from "@/lib/attribution";
 
 const FIELD =
   "w-full rounded-card-sm border-[1.5px] border-[#e8e8e9] bg-white px-[14px] py-[11px] font-sans text-[13.5px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[rgba(107,122,141,0.42)] focus:border-navy focus:shadow-[0_0_0_3px_rgba(2,37,73,0.08)]";
@@ -75,6 +76,27 @@ export default function Contact() {
               noValidate
               onSubmit={(e) => {
                 e.preventDefault();
+
+                const formData = new FormData(e.currentTarget);
+                const payload = {
+                  company: formData.get("company"),
+                  firstName: formData.get("first"),
+                  lastName: formData.get("last"),
+                  email: formData.get("email"),
+                  phone: formData.get("phone"),
+                  challenge: formData.get("challenge"),
+                  ...getStoredAttribution(),
+                };
+
+                // TODO: no lead webhook/API endpoint is configured yet.
+                // Replace with the real endpoint once available, e.g.:
+                // fetch("/api/lead", {
+                //   method: "POST",
+                //   headers: { "Content-Type": "application/json" },
+                //   body: JSON.stringify(payload),
+                // });
+                void payload;
+
                 setSent(true);
               }}
             >

@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Playfair_Display, Open_Sans } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
+import StructuredData from "@/components/StructuredData";
+import UtmTracker from "@/components/UtmTracker";
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, getProfessionalServiceSchema } from "@/lib/seo";
+
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-XXXXXXX";
 
 // --f-serif: 'Playfair Display' — pesos usados en el diseño original
 const playfair = Playfair_Display({
@@ -19,10 +26,30 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
+const DEFAULT_TITLE =
+  "Managed IT Services Provider in Toronto & Ontario | Silverthaw Consulting";
+const DEFAULT_DESCRIPTION =
+  "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy. One partner, full accountability.";
+
 export const metadata: Metadata = {
-  title: "Managed IT Services Provider in Toronto & Ontario | Silverthaw Consulting",
-  description:
-    "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy. One partner, full accountability.",
+  metadataBase: new URL(SITE_URL),
+  title: DEFAULT_TITLE,
+  description: DEFAULT_DESCRIPTION,
+  openGraph: {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "en_CA",
+    url: "/",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [DEFAULT_OG_IMAGE.url],
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +63,12 @@ export default function RootLayout({
       className={`${playfair.variable} ${openSans.variable}`}
     >
       <body className="bg-white font-sans leading-relaxed text-ink-body antialiased">
+        <Suspense fallback={null}>
+          <UtmTracker />
+        </Suspense>
+        <StructuredData data={getProfessionalServiceSchema()} />
         {children}
+        <GoogleTagManager gtmId={GTM_ID} />
       </body>
     </html>
   );
