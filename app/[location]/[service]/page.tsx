@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import type { Metadata } from "next";
 import LandingPage from "@/components/LandingPage";
 import { humanize } from "@/components/format";
