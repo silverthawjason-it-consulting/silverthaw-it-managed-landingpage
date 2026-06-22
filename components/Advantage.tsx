@@ -186,8 +186,8 @@ export default function Advantage({ content }: { content: AdvantageContent }) {
                   </svg>
                 </div>
                 <p className="min-w-0 text-[13.5px] leading-[1.5] text-white/75">
-                  <strong className="font-semibold text-white">{label}</strong>{" "}
-                  — {desc}
+                  <strong className="font-semibold text-white">{label}</strong>
+                  : {desc}
                 </p>
               </div>
             ))}

@@ -8,14 +8,14 @@ const STEPS: {
   {
     n: "1",
     title: "Discovery Call\nwith Jason",
-    desc: "A 30-minute conversation — no slides, no pitch deck. Jason listens to how your business runs, what's working, and where technology is getting in the way.",
+    desc: "A 30-minute conversation, no slides, no pitch deck. Jason listens to how your business runs, what's working, and where technology is getting in the way.",
     tag: "Day 1",
     delay: "d1",
   },
   {
     n: "2",
     title: "IT Environment\nAssessment",
-    desc: "We audit your current infrastructure — network, security posture, software stack, and backup practices — and map it against where your business is headed.",
+    desc: "We audit your current infrastructure, including network, security posture, software stack, and backup practices, then map it against where your business is headed.",
     tag: "Week 1",
     delay: "d2",
   },
@@ -29,7 +29,7 @@ const STEPS: {
   {
     n: "4",
     title: "Proactive Management\nBegins",
-    desc: "24/7 monitoring goes live, helpdesk access is active, and your first monthly IT status meeting is scheduled. Your technology is now being managed — not just supported.",
+    desc: "24/7 monitoring goes live, helpdesk access is active, and your first monthly IT status meeting is scheduled. Your technology is now being managed, not just supported.",
     tag: "Week 3 onward",
     delay: "d4",
   },
@@ -64,7 +64,7 @@ export default function WhatToExpect() {
           </h2>
           <p className="reveal d2 mt-[14px] max-w-[540px] text-[16.5px] leading-[1.75] text-ink-muted">
             Four clear steps. No long sales cycles, no guesswork, no hidden
-            complexity — just a straightforward path to having your IT handled
+            complexity. Just a straightforward path to having your IT handled
             by people who actually know what they&apos;re doing.
           </p>
         </div>

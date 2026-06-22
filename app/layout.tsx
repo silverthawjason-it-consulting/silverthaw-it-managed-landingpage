@@ -22,7 +22,7 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Managed IT Services Provider in Toronto & Ontario | Silverthaw Consulting",
   description:
-    "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy — one partner, full accountability.",
+    "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy. One partner, full accountability.",
 };
 
 export default function RootLayout({

@@ -1,18 +1,18 @@
 const CREDS: [string, string, string][] = [
   [
     "01",
-    "Your strategic IT advisor",
-    " — Jason owns the relationship, assesses your needs, builds the roadmap, and is the single point of accountability for everything Silverthaw delivers",
+    "Your strategic IT advisor.",
+    " Jason owns the relationship, assesses your needs, builds the roadmap, and is the single point of accountability for everything Silverthaw delivers",
   ],
   [
     "02",
-    "Backed by a team of specialists",
-    " — helpdesk, cybersecurity, infrastructure, and cloud are handled by Silverthaw's vetted network of IT professionals, coordinated by Jason on your behalf",
+    "Backed by a team of specialists.",
+    " Helpdesk, cybersecurity, infrastructure, and cloud are handled by Silverthaw's vetted network of IT professionals, coordinated by Jason on your behalf",
   ],
   [
     "03",
-    "Vendor-neutral software selection",
-    " — 25+ years at Oracle, SAP, and across the Ontario partner ecosystem means Jason evaluates the market without bias — and with real implementation experience",
+    "Vendor-neutral software selection.",
+    " 25+ years at Oracle, SAP, and across the Ontario partner ecosystem means Jason evaluates the market without bias, and with real implementation experience",
   ],
 ];
 
@@ -29,7 +29,7 @@ export default function About() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/Jason_Headshot.jpg"
-              alt="Jason Saunders — Founder, Silverthaw Consulting"
+              alt="Jason Saunders, Founder, Silverthaw Consulting"
               className="h-full w-full object-cover object-[top_center]"
             />
           </div>
@@ -59,14 +59,14 @@ export default function About() {
           </h2>
           <div className="reveal d2 mb-[30px] text-[15.5px] leading-[1.82] text-ink-body [&>p+p]:mt-[14px]">
             <p>
-              Jason Saunders has spent 25+ years at the intersection of enterprise technology and business strategy 
-              — advising at Oracle, SAP, and across hundreds of Ontario companies at every stage of growth.
+              Jason Saunders has spent 25+ years at the intersection of enterprise technology and business strategy,
+              advising at Oracle, SAP, and across hundreds of Ontario companies at every stage of growth.
             </p>
             <p>
-              When you work with Silverthaw, Jason is your strategic IT advisor and the single point of accountability for everything Silverthaw delivers. He learns your business, defines your technology roadmap, and manages a dedicated team of IT specialists — helpdesk, cybersecurity, infrastructure, and cloud — who execute on your behalf. You get the depth of a full IT department, guided by an advisor who understands your business goals, not just your ticket queue.
+              When you work with Silverthaw, Jason is your strategic IT advisor and the single point of accountability for everything Silverthaw delivers. He learns your business, defines your technology roadmap, and manages a dedicated team of IT specialists, including helpdesk, cybersecurity, infrastructure, and cloud, who execute on your behalf. You get the depth of a full IT department, guided by an advisor who understands your business goals, not just your ticket queue.
             </p>
             <p>
-              Not a rotating cast of anonymous technicians. A named advisor who owns the relationship — backed by the right specialists for every layer of the job.
+              Not a rotating cast of anonymous technicians. A named advisor who owns the relationship, backed by the right specialists for every layer of the job.
             </p>
           </div>
 

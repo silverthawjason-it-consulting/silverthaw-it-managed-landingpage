@@ -8,9 +8,9 @@ const LABEL =
   "mb-[5px] block text-[11px] font-bold uppercase tracking-[.08em] text-navy";
 
 const EXPECT = [
-  "30 minutes with Jason — your questions, answered directly",
+  "30 minutes with Jason, your questions answered directly",
   "An honest read on your current IT posture and security gaps",
-  "A clear picture of what proactive managed IT would cover — and what it costs",
+  "A clear picture of what proactive managed IT would cover, and what it costs",
 ];
 
 export default function Contact() {
@@ -43,7 +43,7 @@ export default function Contact() {
           </h2>
           <p className="reveal d2 mb-[38px] text-[15.5px] leading-[1.75] text-white/[0.58]">
             No pitch. No obligation. Just a direct conversation with Jason about
-            your technology — what&apos;s working, what isn&apos;t, and what a
+            your technology: what&apos;s working, what isn&apos;t, and what a
             managed IT services partnership would actually look like for your
             business.
           </p>
@@ -140,7 +140,7 @@ export default function Contact() {
                     Phone
                     <span className="text-[10px] font-normal normal-case tracking-normal opacity-40">
                       {" "}
-                      — optional
+                      (optional)
                     </span>
                   </label>
                   <input
@@ -160,7 +160,7 @@ export default function Contact() {
                 <textarea
                   id="ch"
                   name="challenge"
-                  placeholder="Cybersecurity concerns, outgrown tools, no IT strategy — or simply wanting technology handled…"
+                  placeholder="Cybersecurity concerns, outgrown tools, no IT strategy, or simply wanting technology handled…"
                   className={`${FIELD} min-h-[90px] resize-y`}
                 />
               </div>
