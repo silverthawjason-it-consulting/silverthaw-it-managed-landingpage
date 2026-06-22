@@ -39,9 +39,19 @@ export default async function Hero({ location = "Toronto", content }: HeroProps)
             <em className="italic text-silver/[0.88]">{location}</em>
           </h1>
 
-          <p className="reveal d2 mb-10 max-w-[460px] text-[16.5px] leading-[1.78] text-white/[0.62]">
+          <p
+            className={`reveal d2 max-w-[460px] text-[16.5px] font-medium leading-[1.7] text-white/[0.78] ${
+              content.body ? "mb-4" : "mb-10"
+            }`}
+          >
             {content.subheadline}
           </p>
+
+          {content.body && (
+            <p className="reveal d2 mb-10 max-w-[460px] text-[14px] leading-[1.75] text-white/[0.5]">
+              {content.body}
+            </p>
+          )}
 
           {/* botones */}
           <div className="reveal d3 mb-[52px] flex flex-col items-start gap-[14px] sm:flex-row sm:flex-wrap sm:items-center">

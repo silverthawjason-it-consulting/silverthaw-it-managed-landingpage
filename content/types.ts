@@ -26,6 +26,8 @@ export type HeroContent = {
   /** Text before the italicised location in the H1. */
   headlinePrefix: string;
   subheadline: string;
+  /** Optional smaller supporting line below the subheadline. */
+  body?: string;
   primaryCta: string;
   secondaryCta: string;
   socialProofStrong: string;

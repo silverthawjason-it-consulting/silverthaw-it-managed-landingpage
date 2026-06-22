@@ -16,13 +16,15 @@ const managedIT: LandingPageContent = {
     eyebrow: "Ontario · {location} · Managed IT Services",
     headlinePrefix: "Managed IT Services in",
     subheadline:
-      "Silverthaw Consulting delivers managed IT services for small and medium businesses across Toronto and Ontario. We take full ownership of your technology, including IT support, cybersecurity, infrastructure, and software strategy, under one proactive, always-on partnership. So you can stop managing technology and get back to running your business.",
+      "One dedicated team of IT experts covering everything from IT advisory and software selection to implementation, cybersecurity, and day-to-day helpdesk support.",
+    body:
+      "We build custom IT strategies that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
     primaryCta: "Book Your Free Consultation",
     secondaryCta: "See Our Services",
-    socialProofStrong: "Trusted by Ontario businesses",
-    socialProofSub: "Professional Managed IT Providers",
-    chip1: { eyebrow: "Protection", title: "24/7 Security\nMonitoring" },
-    chip2: { eyebrow: "Our Approach", title: "Proactive,\nNot Reactive" },
+    socialProofStrong: "Certified Managed IT Providers",
+    socialProofSub: "25+ Years Enterprise IT Experience · Serving Toronto and Ontario SMBs",
+    chip1: { eyebrow: "Protected", title: "Certified\nIT Experts" },
+    chip2: { eyebrow: "#1 Trusted\nIT Provider", title: "25+ Years in\n Enterprise IT Solutions" },
   },
 
   services: {
