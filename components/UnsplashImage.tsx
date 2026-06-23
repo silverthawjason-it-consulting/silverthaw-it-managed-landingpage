@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { searchPhoto } from "@/lib/unsplash";
+import { randomPhoto, photoById } from "@/lib/unsplash";
 
 type Props = {
   /** Término de búsqueda en Unsplash. Ej: "toronto office technology" */
@@ -14,6 +14,8 @@ type Props = {
   showAttribution?: boolean;
   priority?: boolean;
   orientation?: "landscape" | "portrait" | "squarish";
+  /** Si se especifica, muestra esta foto exacta en vez de pedir una aleatoria. */
+  photoId?: string;
 };
 
 /**
@@ -34,8 +36,11 @@ export default async function UnsplashImage({
   showAttribution = false,
   priority = false,
   orientation = "landscape",
+  photoId,
 }: Props) {
-  const photo = await searchPhoto(query, orientation);
+  const photo = photoId
+    ? await photoById(photoId)
+    : await randomPhoto(query, orientation);
 
   // Si la API falla o no hay resultados — no rompe la página.
   if (!photo) return null;

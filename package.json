@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "hero:reroll": "node scripts/hero-photo.mjs reroll",
+    "hero:lock": "node scripts/hero-photo.mjs lock",
+    "hero:unlock": "node scripts/hero-photo.mjs unlock"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.35",

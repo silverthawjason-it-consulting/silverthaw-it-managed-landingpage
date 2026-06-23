@@ -1,5 +1,6 @@
 import UnsplashImage from "./UnsplashImage";
 import type { HeroContent } from "@/content/types";
+import { LOCKED_HERO_PHOTO_ID } from "@/lib/heroPhoto";
 
 const FACES = ["LQ", "AC", "TS", "PH"];
 
@@ -111,6 +112,7 @@ export default async function Hero({ location = "Toronto", content }: HeroProps)
             {/* foto de Unsplash como fondo */}
             <UnsplashImage
               query="IT support managed services office technology professional"
+              photoId={LOCKED_HERO_PHOTO_ID ?? undefined}
               fill
               priority
               showAttribution
