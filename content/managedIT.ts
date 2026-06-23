@@ -6,19 +6,18 @@ import type { LandingPageContent } from "./types";
  */
 const managedIT: LandingPageContent = {
   meta: {
-    title:
-      "Managed IT Services Provider in Toronto & Ontario | Silverthaw Consulting",
+    title: "Managed IT Services Toronto & Ontario | Silverthaw Consulting",
     description:
-      "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy. One partner, full accountability.",
+      "Looking for managed IT services in Ontario? Silverthaw becomes your dedicated IT partner — helpdesk, cybersecurity, cloud, infrastructure, software selection, and IT advisory, all managed by one team. Book a free consultation today.",
   },
 
   hero: {
     eyebrow: "Ontario · {location} · Managed IT Services",
     headlinePrefix: "Managed IT Services in",
     subheadline:
-      "One dedicated team of IT experts covering everything from IT advisory and software selection to implementation, cybersecurity, and day-to-day helpdesk support.",
-    body:
       "We build custom IT strategies that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
+    body:
+      "One dedicated team of IT experts covering everything from IT advisory and software selection to implementation, cybersecurity, and day-to-day helpdesk support.",
     primaryCta: "Book Your Free Consultation",
     secondaryCta: "See Our Services",
     socialProofStrong: "Certified Managed IT Providers",

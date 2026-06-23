@@ -26,10 +26,9 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
-const DEFAULT_TITLE =
-  "Managed IT Services Provider in Toronto & Ontario | Silverthaw Consulting";
+const DEFAULT_TITLE = "Managed IT Services Toronto & Ontario | Silverthaw Consulting";
 const DEFAULT_DESCRIPTION =
-  "Silverthaw Consulting is Toronto's dedicated managed IT services provider for small and medium businesses across Ontario and the Greater Toronto Area. IT support, cybersecurity, and software strategy. One partner, full accountability.";
+  "Looking for managed IT services in Ontario? Silverthaw becomes your dedicated IT partner — helpdesk, cybersecurity, cloud, infrastructure, software selection, and IT advisory, all managed by one team. Book a free consultation today.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
