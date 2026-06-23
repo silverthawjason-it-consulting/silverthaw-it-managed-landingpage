@@ -17,7 +17,9 @@ const itSupportSmallBusiness: LandingPageContent = {
     eyebrow: "Ontario · {location} · IT Support for Small Business",
     headlinePrefix: "IT Support for Small Businesses in",
     subheadline:
-      "Silverthaw Consulting delivers reliable IT support for small businesses across Toronto and Ontario. We take full ownership of your technology, including helpdesk, cybersecurity, infrastructure, and software guidance, under one responsive, always-on partnership. So you can stop fighting with technology and get back to running your business.",
+      "We build custom IT support plans that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
+    body:
+      "One dedicated team of IT experts covering everything your small business needs from an IT support provider — IT consulting, software selection, cybersecurity and network monitoring, data backup, IT project management and implementation, and day-to-day helpdesk support, all under one roof.",
     primaryCta: "Book Your Free Consultation",
     secondaryCta: "See How We Help",
     socialProofStrong: "Trusted by Ontario businesses",
@@ -32,24 +34,6 @@ const itSupportSmallBusiness: LandingPageContent = {
     subheadline:
       "IT support, helpdesk, IT consulting, and cybersecurity built for small and medium businesses. From everyday helpdesk requests to long-term technology guidance, Silverthaw supports the full lifecycle.",
     items: [
-      {
-        icon: "rocket",
-        name: "Startup IT Foundation",
-        summary:
-          "Launch with dependable IT support for your small business in place from day one. We build your technology foundation across hardware, software, cloud, and security, so it stays lean, protected, and ready to scale from the moment you open the doors.",
-        extended:
-          "Getting your technology right at the start saves years of costly fixes later. We set up your complete IT foundation and provide ongoing small business IT support so your business is operational, protected, and ready to grow, all without building an internal team to manage it.",
-        bullets: [
-          "Website domain registration and hosting setup",
-          "Workstation and server procurement, deployment, and configuration for your team",
-          "Microsoft 365, business email, and cloud backup, fully set up and secured",
-          "Endpoint protection and data security built into your systems from day one",
-          "IT help desk support via phone, email, and remote access immediately available to your team",
-          "Dark web monitoring and anti-phishing awareness training",
-          "Employee onboarding/offboarding and disaster recovery planning",
-          "Monthly IT status updates and quarterly technology planning as your business grows",
-        ],
-      },
       {
         icon: "monitor",
         name: "Small Business IT Support",
@@ -82,6 +66,24 @@ const itSupportSmallBusiness: LandingPageContent = {
           "Transparent quoting and cost analysis for recommended solutions",
           "Vendor-neutral software selection: requirements definition, request for proposal management, vendor scoring, and demo oversight across 100+ systems",
           "IT consulting deliverables at every stage: process maps, requirements lists, vendor scorecards, and final selection reports",
+        ],
+      },
+      {
+        icon: "rocket",
+        name: "IT Setup & Support for New Businesses",
+        summary:
+          "Launch with dependable IT support for your small business in place from day one. We build your technology foundation across hardware, software, cloud, and security, so it stays lean, protected, and ready to scale from the moment you open the doors.",
+        extended:
+          "Getting your technology right at the start saves years of costly fixes later. We set up your complete IT foundation and provide ongoing small business IT support so your business is operational, protected, and ready to grow, all without building an internal team to manage it.",
+        bullets: [
+          "Website domain registration and hosting setup",
+          "Workstation and server procurement, deployment, and configuration for your team",
+          "Microsoft 365, business email, and cloud backup, fully set up and secured",
+          "Endpoint protection and data security built into your systems from day one",
+          "IT help desk support via phone, email, and remote access immediately available to your team",
+          "Dark web monitoring and anti-phishing awareness training",
+          "Employee onboarding/offboarding and disaster recovery planning",
+          "Monthly IT status updates and quarterly technology planning as your business grows",
         ],
       },
       {

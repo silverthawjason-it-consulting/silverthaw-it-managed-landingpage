@@ -15,9 +15,9 @@ const managedIT: LandingPageContent = {
     eyebrow: "Ontario · {location} · Managed IT Services",
     headlinePrefix: "Managed IT Services in",
     subheadline:
-      "We build custom IT strategies that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
+      "We build custom IT solutions that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
     body:
-      "One dedicated team of IT experts covering everything from IT advisory and software selection to implementation, cybersecurity, and day-to-day helpdesk support.",
+      "One dedicated team of IT experts covering everything your business needs from a managed IT services provider — IT consulting, software selection, cybersecurity and network monitoring, data backup, IT project management and implementation, and day-to-day helpdesk support, all under one roof.",
     primaryCta: "Book Your Free Consultation",
     secondaryCta: "See Our Services",
     socialProofStrong: "Certified Managed IT Providers",
@@ -32,24 +32,6 @@ const managedIT: LandingPageContent = {
     subheadline:
       "Managed IT services, IT support, IT consulting, and cybersecurity for small and medium businesses. From daily helpdesk support to long-term technology strategy, Silverthaw manages the full lifecycle.",
     items: [
-      {
-        icon: "rocket",
-        name: "Startup IT Foundation",
-        summary:
-          "Launch with the right IT services for your small business in place from day one. We build your technology foundation across hardware, software, cloud, and security, so it stays lean, protected, and ready to scale from the moment you open the doors.",
-        extended:
-          "Getting your technology right at the start saves years of costly fixes later. We set up your complete IT foundation and provide ongoing outsourced IT support so your business is operational, protected, and ready to grow, all without building an internal team to manage it.",
-        bullets: [
-          "Website domain registration and hosting setup",
-          "Workstation and server procurement, deployment, and configuration for your team",
-          "Microsoft 365, business email, and cloud backup, fully set up and secured",
-          "Endpoint protection and data security built into your systems from day one",
-          "IT help desk support via phone, email, and remote access immediately available to your team",
-          "Dark web monitoring and anti-phishing awareness training",
-          "Employee onboarding/offboarding and disaster recovery planning",
-          "Monthly IT status updates and quarterly technology planning as your business grows",
-        ],
-      },
       {
         icon: "monitor",
         name: "Managed IT Services",
@@ -82,6 +64,24 @@ const managedIT: LandingPageContent = {
           "Transparent quoting and cost analysis for recommended solutions",
           "Vendor-neutral software selection: requirements definition, request for proposal management, vendor scoring, and demo oversight across 100+ systems",
           "IT consulting deliverables at every stage: process maps, requirements lists, vendor scorecards, and final selection reports",
+        ],
+      },
+      {
+        icon: "rocket",
+        name: "IT Setup & Support for New Businesses",
+        summary:
+          "Launch with the right IT services for your small business in place from day one. We build your technology foundation across hardware, software, cloud, and security, so it stays lean, protected, and ready to scale from the moment you open the doors.",
+        extended:
+          "Getting your technology right at the start saves years of costly fixes later. We set up your complete IT foundation and provide ongoing outsourced IT support so your business is operational, protected, and ready to grow, all without building an internal team to manage it.",
+        bullets: [
+          "Website domain registration and hosting setup",
+          "Workstation and server procurement, deployment, and configuration for your team",
+          "Microsoft 365, business email, and cloud backup, fully set up and secured",
+          "Endpoint protection and data security built into your systems from day one",
+          "IT help desk support via phone, email, and remote access immediately available to your team",
+          "Dark web monitoring and anti-phishing awareness training",
+          "Employee onboarding/offboarding and disaster recovery planning",
+          "Monthly IT status updates and quarterly technology planning as your business grows",
         ],
       },
       {
