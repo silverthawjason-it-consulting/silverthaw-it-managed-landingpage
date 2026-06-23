@@ -1,12 +1,7 @@
-"use client";
+import ZohoBookingWidget from "./ZohoBookingWidget";
 
-import { useState } from "react";
-import { getStoredAttribution } from "@/lib/attribution";
-
-const FIELD =
-  "w-full rounded-card-sm border-[1.5px] border-[#e8e8e9] bg-white px-[14px] py-[11px] font-sans text-[13.5px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[rgba(107,122,141,0.42)] focus:border-navy focus:shadow-[0_0_0_3px_rgba(2,37,73,0.08)]";
-const LABEL =
-  "mb-[5px] block text-[11px] font-bold uppercase tracking-[.08em] text-navy";
+const ZOHO_BOOKING_URL =
+  "https://info-silverthaw.zohobookings.ca/portal-embed#/9508000000527050";
 
 const EXPECT = [
   "30 minutes with Jason, your questions answered directly",
@@ -15,8 +10,6 @@ const EXPECT = [
 ];
 
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
   return (
     <section
       id="contact"
@@ -61,177 +54,17 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* ---- tarjeta de formulario ---- */}
-        <div className="reveal d2 rounded-[24px] bg-white p-[44px_40px] shadow-form">
+        {/* ---- tarjeta de reserva (Zoho Bookings) ---- */}
+        <div className="reveal d2 rounded-[24px] bg-white p-[28px_24px] shadow-form sm:p-[36px_32px]">
           <h3 className="mb-[6px] font-serif text-[22px] font-bold text-navy">
-            Let&apos;s Talk Technology
+            Pick a Time That Works
           </h3>
           <p className="mb-7 text-[13px] text-ink-muted">
             Serving Ontario businesses across the Greater Toronto Area and
             beyond.
           </p>
 
-          {!sent ? (
-            <form
-              noValidate
-              onSubmit={(e) => {
-                e.preventDefault();
-
-                const formData = new FormData(e.currentTarget);
-                const payload = {
-                  company: formData.get("company"),
-                  firstName: formData.get("first"),
-                  lastName: formData.get("last"),
-                  email: formData.get("email"),
-                  phone: formData.get("phone"),
-                  challenge: formData.get("challenge"),
-                  ...getStoredAttribution(),
-                };
-
-                // TODO: no lead webhook/API endpoint is configured yet.
-                // Replace with the real endpoint once available, e.g.:
-                // fetch("/api/lead", {
-                //   method: "POST",
-                //   headers: { "Content-Type": "application/json" },
-                //   body: JSON.stringify(payload),
-                // });
-                void payload;
-
-                setSent(true);
-              }}
-            >
-              <div className="mb-[14px]">
-                <label htmlFor="co" className={LABEL}>
-                  Company Name
-                </label>
-                <input
-                  id="co"
-                  name="company"
-                  type="text"
-                  required
-                  placeholder="Your company name"
-                  className={FIELD}
-                />
-              </div>
-
-              <div className="grid grid-cols-1 gap-[14px] sm:grid-cols-2">
-                <div className="mb-[14px]">
-                  <label htmlFor="fn" className={LABEL}>
-                    First Name
-                  </label>
-                  <input
-                    id="fn"
-                    name="first"
-                    type="text"
-                    required
-                    placeholder="First name"
-                    className={FIELD}
-                  />
-                </div>
-                <div className="mb-[14px]">
-                  <label htmlFor="ln" className={LABEL}>
-                    Last Name
-                  </label>
-                  <input
-                    id="ln"
-                    name="last"
-                    type="text"
-                    required
-                    placeholder="Last name"
-                    className={FIELD}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 gap-[14px] sm:grid-cols-2">
-                <div className="mb-[14px]">
-                  <label htmlFor="em" className={LABEL}>
-                    Email Address
-                  </label>
-                  <input
-                    id="em"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="you@company.com"
-                    className={FIELD}
-                  />
-                </div>
-                <div className="mb-[14px]">
-                  <label htmlFor="ph" className={LABEL}>
-                    Phone
-                    <span className="text-[10px] font-normal normal-case tracking-normal opacity-40">
-                      {" "}
-                      (optional)
-                    </span>
-                  </label>
-                  <input
-                    id="ph"
-                    name="phone"
-                    type="tel"
-                    placeholder="(416) 555-0000"
-                    className={FIELD}
-                  />
-                </div>
-              </div>
-
-              <div className="mb-[14px]">
-                <label htmlFor="ch" className={LABEL}>
-                  Your Biggest IT Challenge Right Now
-                </label>
-                <textarea
-                  id="ch"
-                  name="challenge"
-                  placeholder="Cybersecurity concerns, outgrown tools, no IT strategy, or simply wanting technology handled…"
-                  className={`${FIELD} min-h-[90px] resize-y`}
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="mt-[6px] flex w-full items-center justify-center gap-[9px] rounded-full bg-navy p-[15px] font-sans text-[14.5px] font-semibold text-white transition-[background,transform] duration-[.22s] hover:-translate-y-px hover:bg-navy-mid"
-              >
-                Book My Free Consultation
-                <svg
-                  viewBox="0 0 17 17"
-                  className="h-[17px] w-[17px]"
-                  stroke="white"
-                  fill="none"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M3 14L14 3M14 3H8M14 3V9" />
-                </svg>
-              </button>
-              <p className="mt-[12px] text-center text-[12px] text-ink-muted">
-                We&apos;ll be in touch within one business day.
-              </p>
-            </form>
-          ) : (
-            <div className="px-5 py-[48px] text-center">
-              <div className="mx-auto mb-[18px] flex h-[58px] w-[58px] items-center justify-center rounded-full bg-navy">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-6 w-6"
-                  stroke="white"
-                  fill="none"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              </div>
-              <h3 className="mb-[10px] font-serif text-[22px] text-navy">
-                You&apos;re all set.
-              </h3>
-              <p className="text-[14px] leading-[1.65] text-ink-muted">
-                Jason will be in touch within one business day to confirm your
-                consultation. Talk soon.
-              </p>
-            </div>
-          )}
+          <ZohoBookingWidget baseUrl={ZOHO_BOOKING_URL} />
         </div>
       </div>
     </section>
