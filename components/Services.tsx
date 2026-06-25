@@ -163,6 +163,17 @@ export default function Services({ content }: { content: ServicesContent }) {
                           </li>
                         ))}
                       </ul>
+
+                      {svc.certifications && (
+                        <>
+                          <p className="mb-2 mt-5 text-[10px] font-bold uppercase tracking-[0.2em] text-navy/[0.45]">
+                            Certifications &amp; Expertise
+                          </p>
+                          <p className="text-[12px] leading-[1.65] text-ink-muted">
+                            {svc.certifications}
+                          </p>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

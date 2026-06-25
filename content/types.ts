@@ -42,6 +42,8 @@ export type ServiceItem = {
   summary: string;
   extended: string;
   bullets: string[];
+  /** Optional "·"-separated credentials line shown below the bullets. */
+  certifications?: string;
 };
 
 export type ServicesContent = {
