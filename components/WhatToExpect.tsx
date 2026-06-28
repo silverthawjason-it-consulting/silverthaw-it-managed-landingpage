@@ -8,7 +8,7 @@ const STEPS: {
   {
     n: "1",
     title: "Discovery Call\nwith Jason",
-    desc: "A 30-minute conversation, no slides, no pitch deck. Jason listens to how your business runs, what's working, and where technology is getting in the way.",
+    desc: "A 30-minute conversation, no slides, no pitch deck. Our licensed advisors listen to how your business runs, what's working, and where technology is getting in the way.",
     tag: "Day 1",
     delay: "d1",
   },

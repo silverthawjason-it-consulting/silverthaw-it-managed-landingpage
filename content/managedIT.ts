@@ -39,9 +39,9 @@ const managedIT: LandingPageContent = {
         icon: "monitor",
         name: "Managed IT Services",
         summary:
-          "Your complete outsourced IT department and managed IT services including 24/7 system monitoring, remote helpdesk support, cybersecurity, network optimization and cloud solutions management across all technology layers of your business.",
+          "Your complete outsourced IT department and managed IT services including your business IT monitoring, remote helpdesk support, cybersecurity, network optimization and cloud solutions management across all technology layers of your business.",
         extended:
-          "We start by understanding your business — where you are today and where you are headed. From there we build a managed IT services package tailored to your specific operations and take full ownership of your technology: helpdesk, security, infrastructure, and strategic planning.",
+          "We start by understanding your business — where you are today and where you are headed. From there we build a managed IT services package tailored to your specific operations and needs. We then supervise and take full ownership of your technology: helpdesk, security, infrastructure, and strategic implementation.",
         bullets: [
           "Real-time help desk support via phone, email, and ticketing, with average response time under 15 minutes",
           "24/7 network monitoring for uptime, performance, and security",
@@ -79,9 +79,9 @@ const managedIT: LandingPageContent = {
         icon: "database",
         name: "Data Backup & Disaster Recovery",
         summary:
-          "Automated, encrypted backup and tested disaster recovery built around your operations so your business recovers fast from ransomware, cyberattacks, hardware failure, or physical disaster.",
+          "Automated, encrypted backup and tested disaster recovery built around your operations so your business is protected from ransomware, cyberattacks, hardware failure, or physical disaster.",
         extended:
-          "We start by understanding what data drives your business and how you create value. From there we design a tailored data retention and disaster recovery plan covering on-premises and cloud environments — so your critical information is always recoverable, your data intact and your operations uninterrupted.",
+          "We start by understanding what data drives your business and how it flows across your operations. From there we design a tailored data retention and disaster recovery plan covering on-premises and cloud environments — so your data is always recoverable and your operations stay uninterrupted.",
         bullets: [
           "Disaster recovery planning and network documentation",
           "Data categorization and storage roadmaps",
@@ -99,7 +99,7 @@ const managedIT: LandingPageContent = {
         icon: "lightbulb",
         name: "IT Consulting & Software Selection",
         summary:
-          "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side at Oracle, SAP, and across the Ontario partner ecosystem.",
+          "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions across the Ontario partner ecosystem.",
         extended:
           "We assess your current systems, diagnose what is holding you back, and build a roadmap aligned to your business goals. For software selection, we run a structured, vendor-neutral evaluation across 100+ systems — requirements definition through final recommendation — with no vendor incentives influencing the outcome.",
         bullets: [
