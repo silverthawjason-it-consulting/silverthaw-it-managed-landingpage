@@ -30,7 +30,7 @@ export default function Footer() {
           {/* marca */}
           <div>
             <BrandLogo
-              imgHeight={34}
+              imgHeight={56}
               imgClassName="mb-3"
               fallback={
                 <p className="mb-[10px] font-serif text-[21px] font-bold text-navy">

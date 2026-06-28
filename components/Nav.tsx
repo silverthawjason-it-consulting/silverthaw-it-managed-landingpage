@@ -28,7 +28,7 @@ export default function Nav() {
       <div className="mx-auto flex h-[70px] max-w-site items-center justify-between px-6">
         <a href="/" className="flex items-center gap-[10px]">
           <BrandLogo
-            imgHeight={38}
+            imgHeight={64}
             fallback={
               <span className="font-serif text-[21px] font-bold tracking-[-0.02em] text-navy">
                 Silver<em className="italic text-silver">thaw</em>
