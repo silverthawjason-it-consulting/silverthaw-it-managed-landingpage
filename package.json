@@ -9,7 +9,9 @@
     "lint": "next lint",
     "hero:reroll": "node scripts/hero-photo.mjs reroll",
     "hero:lock": "node scripts/hero-photo.mjs lock",
-    "hero:unlock": "node scripts/hero-photo.mjs unlock"
+    "hero:unlock": "node scripts/hero-photo.mjs unlock",
+    "hero:reroll:legal": "node scripts/hero-photo.mjs reroll legal",
+    "hero:unlock:legal": "node scripts/hero-photo.mjs unlock legal"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.35",

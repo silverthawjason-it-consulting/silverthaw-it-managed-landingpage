@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { BrandLogo } from "./BrandLogo";
 
 const LINKS: [string, string][] = [
-  ["Services", "#services"],
-  ["About Jason", "#about"],
-  ["FAQ", "#faq"],
-  ["Contact", "#contact"],
+  ["Services", "/#services"],
+  ["About Jason", "/#about"],
+  ["FAQ", "/#faq"],
+  ["Contact", "/#contact"],
 ];
 
 export default function Nav() {
@@ -26,7 +26,7 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex h-[70px] max-w-site items-center justify-between px-6">
-        <a href="#" className="flex items-center gap-[10px]">
+        <a href="/" className="flex items-center gap-[10px]">
           <BrandLogo
             imgHeight={38}
             fallback={
@@ -51,7 +51,7 @@ export default function Nav() {
         </ul>
 
         <a
-          href="#contact"
+          href="/#contact"
           className="group inline-flex items-center gap-[9px] whitespace-nowrap rounded-full border-2 border-navy bg-navy px-5 py-[11px] text-[13px] font-semibold text-white transition-all duration-[.22s] hover:bg-transparent hover:text-navy"
         >
           Book a Free Consultation

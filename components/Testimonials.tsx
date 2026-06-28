@@ -49,7 +49,7 @@ export default function Testimonials() {
               >
                 &ldquo;
               </span>
-              <p className="relative z-[1] mb-[26px] font-serif text-[18px] italic leading-[1.68] text-navy">
+              <p className="relative z-[1] mb-[26px] font-sans text-[15px] leading-[1.68] text-navy">
                 &ldquo;{q}&rdquo;
               </p>
               <p className="border-t border-[#ebebec] pt-[16px] text-[12px] font-bold uppercase tracking-[.1em] text-ink-muted">
