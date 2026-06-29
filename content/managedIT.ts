@@ -29,7 +29,7 @@ const managedIT: LandingPageContent = {
   services: {
     eyebrow: "Our Services",
     headingLines: [
-      "Your IT. Fully Managed. One Team.",
+      "Your IT. Fully Managed.",
       "Every Layer of Your Technology.",
     ],
     subheadline:
@@ -162,7 +162,7 @@ const managedIT: LandingPageContent = {
     eyebrow: "The Silverthaw Advantage",
     headingLines: ["The Only Partner", "That Grows", "With You."],
     subheadline:
-      "Managed IT services aren't a stopgap. They're the infrastructure model built for how businesses actually scale. One flexible partner, a full team of specialists across every layer of technology, without the overhead of hiring and managing in-house staff. A fraction of the cost of building it yourself.",
+      "If your business is starting to slow down due to tech limitations — your team interrupted by outages, operations stalling from the wrong software and tools, security that feels like a gap nobody owns, and no IT roadmap or strategic direction to move forward — it is time to stop managing technology yourself and hand it to a full team of specialists. Without the overhead of building one internally.",
     cards: [
       {
         label: "24/7 Coverage.\nEvery Layer.",
