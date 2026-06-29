@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import type { ServicesContent } from "@/content/types";
+import type { ServicesContent, ServiceItem } from "@/content/types";
 
 const S = {
   viewBox: "0 0 24 24",
@@ -57,7 +57,54 @@ const ICONS = {
   ),
 };
 
+function ServiceDetail({ item }: { item: ServiceItem }) {
+  return (
+    <div>
+      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-silver-bg text-navy">
+        {ICONS[item.icon]}
+      </div>
+
+      <h3 className="mb-3 font-serif text-[22px] font-bold leading-[1.25] text-navy sm:text-[25px]">
+        {item.name}
+      </h3>
+
+      <p className="mb-4 text-[15.5px] font-medium leading-[1.7] text-ink-body">
+        {item.summary}
+      </p>
+
+      <p className="mb-6 text-[14px] leading-[1.75] text-ink-muted">
+        {item.extended}
+      </p>
+
+      <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] text-navy/[0.45]">
+        What&apos;s included
+      </p>
+      <ul className="space-y-2.5">
+        {item.bullets.map((b) => (
+          <li key={b} className="flex items-start gap-2.5">
+            <span className="mt-[7px] h-[6px] w-[6px] shrink-0 rotate-45 bg-navy" />
+            <span className="text-[13.5px] leading-[1.6] text-ink-body">{b}</span>
+          </li>
+        ))}
+      </ul>
+
+      {item.certifications && (
+        <>
+          <p className="mb-2 mt-6 text-[10px] font-bold uppercase tracking-[0.2em] text-navy/[0.45]">
+            Certifications &amp; Expertise
+          </p>
+          <p className="text-[12px] leading-[1.65] text-ink-muted">
+            {item.certifications}
+          </p>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function Services({ content }: { content: ServicesContent }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   const [open, setOpen] = useState<number | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -95,8 +142,8 @@ export default function Services({ content }: { content: ServicesContent }) {
           </p>
         </div>
 
-        {/* Service cards grid */}
-        <div className="reveal d1 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {/* ---- Mobile / narrow-tablet: original card grid (<lg) ---- */}
+        <div className="reveal d1 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:hidden">
           {content.items.map((svc, i) => {
             const isOpen = open === i;
             return (
@@ -180,6 +227,51 @@ export default function Services({ content }: { content: ServicesContent }) {
               </div>
             );
           })}
+        </div>
+
+        {/* ---- Wide tablet / desktop: vertical tabs (>=lg) ---- */}
+        <div className="reveal d1 hidden overflow-hidden rounded-card border border-silver-line shadow-soft lg:grid lg:grid-cols-[28%_1fr]">
+          {/* Left: nav list */}
+          <div className="border-r border-silver-line bg-silver-bg py-3">
+            {content.items.map((svc, i) => {
+              const isActive = activeIndex === i;
+              return (
+                <button
+                  key={svc.name}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  className={`relative flex w-full items-center gap-3 px-[22px] py-[15px] text-left transition-colors duration-[.2s] ${
+                    isActive
+                      ? "bg-white text-navy"
+                      : "text-ink-body hover:bg-white/60 hover:text-navy"
+                  }`}
+                >
+                  {isActive && (
+                    <span className="absolute inset-y-0 left-0 w-[3px] bg-navy" />
+                  )}
+                  <span
+                    className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg [&_svg]:h-[18px] [&_svg]:w-[18px] ${
+                      isActive ? "bg-silver-bg text-navy" : "bg-white text-navy/70"
+                    }`}
+                  >
+                    {ICONS[svc.icon]}
+                  </span>
+                  <span
+                    className={`min-w-0 text-[14px] leading-[1.4] ${
+                      isActive ? "font-bold" : "font-medium"
+                    }`}
+                  >
+                    {svc.name}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right: active service detail */}
+          <div className="bg-white p-10 lg:p-12">
+            <ServiceDetail item={content.items[activeIndex]} />
+          </div>
         </div>
       </div>
     </section>
