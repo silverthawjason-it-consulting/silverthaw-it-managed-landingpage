@@ -38,15 +38,15 @@ const itSupportSmallBusiness: LandingPageContent = {
         icon: "monitor",
         name: "Small Business IT Support",
         summary:
-          "Your complete outsourced support desk in Toronto and across Ontario: responsive helpdesk, proactive monitoring, patch management, and on-site help. Issues resolved before your team notices them.",
+          "Your complete outsourced support desk in Toronto and across Ontario: responsive helpdesk, proactive monitoring, vulnerability management, and on-site help. Issues resolved before your team notices them.",
         extended:
           "We begin with an assessment of your current environment and where your business is headed. From there, the Silverthaw team build an IT support package tailored to your operations, then take full ownership of your technology: helpdesk, security, infrastructure, and day-to-day support.",
         bullets: [
           "Real-time help desk support via phone, email, and ticketing, with average response time under 15 minutes",
           "24/7 network monitoring for uptime, performance, and security",
           "Remote IT support and troubleshooting resolved without disrupting your operations",
-          "Server monitoring, performance tuning, and operating system patch management",
-          "Automated endpoint patch management across all devices on your network",
+          "Server monitoring, performance tuning, and operating system vulnerability management",
+          "Automated endpoint vulnerability management across all devices on your network",
           "Firewall, router, and switch configuration, monitoring, and ongoing management",
           "Secure remote access for hybrid and remote teams",
           "Monthly IT status updates and quarterly technology reviews included",

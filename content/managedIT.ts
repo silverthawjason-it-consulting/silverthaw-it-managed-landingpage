@@ -39,15 +39,15 @@ const managedIT: LandingPageContent = {
         icon: "monitor",
         name: "Managed IT Services",
         summary:
-          "Your complete outsourced IT department and managed IT services including your business IT monitoring, remote helpdesk support, cybersecurity, network optimization and cloud solutions management across all technology layers of your business.",
+          "Your complete outsourced IT department - remote helpdesk support, IT cloud management, cybersecurity and network protection across all technology layers of your business.",
         extended:
           "We start by understanding your business — where you are today and where you are headed. From there we build a managed IT services package tailored to your specific operations and needs. We then supervise and take full ownership of your technology: helpdesk, security, infrastructure, and strategic implementation.",
         bullets: [
           "Real-time help desk support via phone, email, and ticketing, with average response time under 15 minutes",
           "24/7 network monitoring for uptime, performance, and security",
           "Remote IT support and troubleshooting resolved without disrupting your operations",
-          "Server monitoring, performance tuning, and operating system patch management",
-          "Automated endpoint patch management across all devices on your network",
+          "Server monitoring, performance tuning, and operating system vulnerability management",
+          "Automated endpoint vulnerability management across all devices on your network",
           "Firewall, router, and switch configuration, monitoring, and ongoing management",
           "Secure remote access for hybrid and remote teams",
           "Monthly IT status updates and quarterly technology reviews included",
@@ -57,7 +57,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "shield",
-        name: "Cybersecurity & Network Monitoring",
+        name: "Cybersecurity & Network Protection",
         summary:
           "Continuous threat monitoring and cybersecurity management for your devices, network, email, and credentials. Stay protected around the clock with our managed cybersecurity services.",
         extended:
@@ -97,11 +97,11 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "lightbulb",
-        name: "IT Consulting & Software Selection",
+        name: "Software Selection & IT Consulting",
         summary:
-          "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions across the Ontario partner ecosystem.",
+          "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions.",
         extended:
-          "We assess your current systems, diagnose what is holding you back, and build a roadmap aligned to your business goals. For software selection, we run a structured, vendor-neutral evaluation across 100+ systems — requirements definition through final recommendation — with no vendor incentives influencing the outcome.",
+          "We assess your current systems, diagnose what is holding you back, and build a roadmap aligned to your business goals. For software selection, we run a structured, vendor-neutral evaluation across 100+ systems — we aligned the software with your business needs with no vendor incentives influencing the outcome.",
         bullets: [
           "In-depth analysis of existing IT systems, infrastructure, and security posture",
           "Diagnosis of IT weaknesses, bottlenecks, and gaps",
@@ -115,7 +115,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "clipboard",
-        name: "IT Project Management & Implementation",
+        name: "Project Management & Implementation",
         summary:
           "End-to-end IT project delivery. From scope definition to go-live, we plan, coordinate, and deliver your IT projects as a full-service IT solutions provider.",
         extended:
