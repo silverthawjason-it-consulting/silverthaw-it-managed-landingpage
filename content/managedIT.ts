@@ -33,7 +33,7 @@ const managedIT: LandingPageContent = {
       "Every Layer of Your Technology.",
     ],
     subheadline:
-      "Silverthaw manages the full technology lifecycle for Ontario small and medium businesses — IT consulting, software selection, cybersecurity and network monitoring, data backup and disaster recovery, IT project management, and day-to-day helpdesk support, all under one dedicated team.",
+      "Silverthaw manages the full technology lifecycle for Ontario small and medium businesses including outsourced IT managed services, IT consulting and project management, ERP software selection, cybersecurity and network monitoring, data backup and disaster recovery, and day-to-day helpdesk support, all under one dedicated team.",
     items: [
       {
         icon: "monitor",
