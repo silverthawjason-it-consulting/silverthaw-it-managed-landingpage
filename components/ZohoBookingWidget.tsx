@@ -43,11 +43,24 @@ function ZohoBookingWidgetInner({ baseUrl }: ZohoBookingWidgetProps) {
       if (value) attribution[key] = value;
     }
 
-    const url = new URL(baseUrl);
+    // Build the query string with URLSearchParams (handles encoding) but
+    // append it MANUALLY to the very end of baseUrl. We can't use new URL()
+    // here: it serializes search params BEFORE the hash, and Zoho Bookings
+    // is a hash-routed SPA — anything before the "#" is ignored by its
+    // internal router. Params must land after the hash to be read.
+    const params = new URLSearchParams();
     for (const [key, value] of Object.entries(attribution)) {
-      if (value) url.searchParams.set(key, value);
+      if (value) params.set(key, value);
     }
-    setFinalUrl(url.toString());
+    const queryString = params.toString();
+
+    if (!queryString) {
+      setFinalUrl(baseUrl);
+      return;
+    }
+
+    const separator = baseUrl.includes("?") ? "&" : "?";
+    setFinalUrl(baseUrl + separator + queryString);
   }, [baseUrl, searchParams]);
 
   // 2. Mount the Zoho widget only once BOTH the embed script is ready and
