@@ -1,5 +1,4 @@
-const ZOHO_BOOKING_URL =
-  "https://bookings.silverthaw.ca/portal-embed#/9508000000527050";
+import BookingButton from "./BookingButton";
 
 const EXPECT = [
   "30 minutes with Jason, your questions answered directly",
@@ -59,16 +58,10 @@ export default function Contact() {
           </h3>
           <p className="mb-7 text-[13px] text-ink-muted">
             Serving Ontario businesses across the Greater Toronto Area and
-            beyond.
+            beyond. Opens our secure booking page in a new tab.
           </p>
 
-          <iframe
-            src={ZOHO_BOOKING_URL}
-            title="Book a free IT consultation with Silverthaw"
-            allowFullScreen
-            className="mx-auto block w-full max-w-2xl border-0"
-            style={{ height: "600px" }}
-          />
+          <BookingButton />
         </div>
       </div>
     </section>
