@@ -1,28 +1,41 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
+import Script from "next/script";
 import { useSearchParams } from "next/navigation";
 import { getStoredAttribution, ATTRIBUTION_PARAMS } from "@/lib/attribution";
 
+// embed.js attaches this global once loaded.
+declare global {
+  interface Window {
+    Bookings?: {
+      inlineEmbed: (config: {
+        url: string;
+        parent: string;
+        height?: string;
+      }) => void;
+    };
+  }
+}
+
+const EMBED_SCRIPT_SRC = "https://bookings.nimbuspop.com/assets/embed.js";
+
 type ZohoBookingWidgetProps = {
-  /** Absolute Zoho Bookings embed URL, e.g. "https://bookings.silverthaw.ca/portal-embed#/SERVICE_ID" */
+  /** Absolute Zoho Bookings embed URL, e.g. "https://info-silverthaw.zohobookings.ca/portal-embed#/SERVICE_ID" */
   baseUrl: string;
 };
-
-// Placeholder occupies the iframe's height so there's no layout shift between
-// the initial (attribution-less) render and the real iframe mounting.
-function Placeholder() {
-  return <div className="mx-auto h-[600px] w-full max-w-2xl" aria-hidden />;
-}
 
 function ZohoBookingWidgetInner({ baseUrl }: ZohoBookingWidgetProps) {
   const searchParams = useSearchParams();
   const [finalUrl, setFinalUrl] = useState<string | null>(null);
+  const [scriptReady, setScriptReady] = useState(false);
+  const initializedRef = useRef(false);
 
-  // Build the iframe src: stored attribution merged with whatever the CURRENT
-  // URL carries (URL wins — freshest click). Reading the URL directly here, not
-  // just localStorage, avoids a cross-component effect-ordering race with
-  // UtmTracker (deferred behind its own Suspense boundary).
+  // 1. Build the final URL: stored attribution merged with whatever the
+  //    CURRENT URL carries (URL wins — freshest click). Reading the URL
+  //    directly here, not just localStorage, avoids a cross-component
+  //    effect-ordering race with UtmTracker (deferred behind its own
+  //    Suspense boundary, so its write can land in a later React commit).
   useEffect(() => {
     const attribution = { ...getStoredAttribution() };
     for (const key of ATTRIBUTION_PARAMS) {
@@ -30,11 +43,11 @@ function ZohoBookingWidgetInner({ baseUrl }: ZohoBookingWidgetProps) {
       if (value) attribution[key] = value;
     }
 
-    // Build the query string with URLSearchParams (handles encoding) but append
-    // it MANUALLY to the very end of baseUrl. Zoho Bookings is a hash-routed
-    // SPA — anything before the "#" is ignored by its router, and its CRM
-    // attribution capture reads the params from after the hash. new URL() would
-    // serialize them before the hash, so we can't use it here.
+    // Build the query string with URLSearchParams (handles encoding) but
+    // append it MANUALLY to the very end of baseUrl. We can't use new URL()
+    // here: it serializes search params BEFORE the hash, and Zoho Bookings
+    // is a hash-routed SPA — anything before the "#" is ignored by its
+    // internal router. Params must land after the hash to be read.
     const params = new URLSearchParams();
     for (const [key, value] of Object.entries(attribution)) {
       if (value) params.set(key, value);
@@ -50,36 +63,49 @@ function ZohoBookingWidgetInner({ baseUrl }: ZohoBookingWidgetProps) {
     setFinalUrl(baseUrl + separator + queryString);
   }, [baseUrl, searchParams]);
 
-  // Render the iframe only once the URL (with any attribution) is built, so
-  // Zoho loads exactly once with the final src rather than loading the bare
-  // baseUrl first and reloading when the params land.
-  if (!finalUrl) return <Placeholder />;
+  // 2. Mount the Zoho widget only once BOTH the embed script is ready and
+  //    the URL is built. Guarded so it embeds exactly once per mount.
+  useEffect(() => {
+    if (initializedRef.current) return;
+    if (!scriptReady || !finalUrl) return;
+    if (typeof window === "undefined" || !window.Bookings) return;
+
+    window.Bookings.inlineEmbed({
+      url: finalUrl,
+      parent: "#inline-container",
+      height: "600px",
+    });
+    initializedRef.current = true;
+  }, [scriptReady, finalUrl]);
 
   return (
-    <iframe
-      src={finalUrl}
-      title="Book a free IT consultation with Silverthaw"
-      allowFullScreen
-      className="mx-auto block w-full max-w-2xl border-0"
-      style={{ height: "600px" }}
-    />
+    <>
+      <Script
+        src={EMBED_SCRIPT_SRC}
+        strategy="afterInteractive"
+        // onReady (not onLoad) so this also fires on a client-side remount
+        // when the script is already cached — otherwise a return visit via
+        // client navigation would never re-embed.
+        onReady={() => setScriptReady(true)}
+      />
+      <div id="inline-container" className="mx-auto w-full max-w-2xl" />
+    </>
   );
 }
 
 /**
- * Embeds a Zoho Bookings calendar as a plain <iframe> (NOT Zoho's
- * `Bookings.inlineEmbed` script — that script's injected iframe renders fine
- * but its submit button is dead on desktop; a plain iframe with the same URL
- * works). Any stored attribution (gclid/utm_*) from lib/attribution.ts is
- * appended to the embed URL as query params after the hash so Zoho can capture
- * it into the booking record / CRM.
+ * Embeds a Zoho Bookings calendar via Zoho's `Bookings.inlineEmbed` script
+ * method (rather than a raw <iframe>), mounting it into #inline-container
+ * for better height/responsiveness control. Any stored attribution
+ * (gclid/utm_*) from lib/attribution.ts is appended to the embed URL as
+ * query params — Zoho's domain can't read our localStorage directly.
  *
- * The internal <Suspense> (required for useSearchParams on a static page) is
- * self-contained, so callers can drop this in with no extra wrapping.
+ * The internal <Suspense> (required for useSearchParams on a static page)
+ * is self-contained, so callers can drop this in with no extra wrapping.
  */
 export default function ZohoBookingWidget({ baseUrl }: ZohoBookingWidgetProps) {
   return (
-    <Suspense fallback={<Placeholder />}>
+    <Suspense fallback={null}>
       <ZohoBookingWidgetInner baseUrl={baseUrl} />
     </Suspense>
   );
