@@ -1,7 +1,7 @@
 import ZohoBookingWidget from "./ZohoBookingWidget";
 
 const ZOHO_BOOKING_URL =
-  "https://info-silverthaw.zohobookings.ca/portal-embed#/9508000000527050";
+  "https://bookings.silverthaw.ca/portal-embed#/9508000000527050";
 
 const EXPECT = [
   "30 minutes with Jason, your questions answered directly",
