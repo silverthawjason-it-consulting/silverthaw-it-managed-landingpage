@@ -11,7 +11,7 @@ const PORTAL_EMBED_URL =
 // V1: standard Service/Workspace Booking URL (the ".../#/<slug>" form Zoho's
 // prefill docs use). Fill this once obtained from Zoho, OR pass
 // ?baseUrl=<url-encoded> to test without editing this file.
-const STANDARD_BOOKING_URL = ""; // e.g. "https://bookings.silverthaw.ca/#/<slug>"
+const STANDARD_BOOKING_URL = "https://bookings.silverthaw.ca/#/silverthawconsultingltd";
 
 // Mirror of the widget's URL-building, only so we can DISPLAY the final src here.
 function computeFinalUrl(baseUrl: string, searchParams: URLSearchParams): string {
