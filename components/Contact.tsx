@@ -1,3 +1,5 @@
+import ZohoBookingWidget from "./ZohoBookingWidget";
+
 const ZOHO_BOOKING_URL =
   "https://bookings.silverthaw.ca/portal-embed#/9508000000527050";
 
@@ -62,13 +64,7 @@ export default function Contact() {
             beyond.
           </p>
 
-          <iframe
-            src={ZOHO_BOOKING_URL}
-            title="Book a free IT consultation with Silverthaw"
-            allowFullScreen
-            className="mx-auto block w-full max-w-2xl border-0"
-            style={{ height: "600px" }}
-          />
+          <ZohoBookingWidget baseUrl={ZOHO_BOOKING_URL} />
         </div>
       </div>
     </section>
