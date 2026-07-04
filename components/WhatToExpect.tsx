@@ -63,9 +63,8 @@ export default function WhatToExpect() {
             Fully Managed.
           </h2>
           <p className="reveal d2 mt-[14px] max-w-[540px] text-[16.5px] leading-[1.75] text-ink-muted">
-            Four clear steps. No long sales cycles, no guesswork, no hidden
-            complexity. Just a straightforward path to having your IT handled
-            by people who actually know what they&apos;re doing.
+            Four steps from first conversation to having your IT handled by a
+            team of experts you can trust.
           </p>
         </div>
 
