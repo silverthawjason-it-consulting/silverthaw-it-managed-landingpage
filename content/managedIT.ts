@@ -33,7 +33,7 @@ const managedIT: LandingPageContent = {
       "Every Layer of Your Technology.",
     ],
     subheadline:
-      "Silverthaw manages the full technology lifecycle for Ontario small and medium businesses including outsourced IT managed services, IT consulting and project management, ERP software selection, cybersecurity and network protection, data backup and disaster recovery, and day-to-day helpdesk support, all under one dedicated team.",
+      "Silverthaw manages the full technology lifecycle for Ontario small and medium businesses including outsourced IT managed services, IT consulting & ERP software selection, cybersecurity and network protection, data backup and disaster recovery, all under one dedicated team.",
     items: [
       {
         icon: "monitor",
@@ -54,6 +54,24 @@ const managedIT: LandingPageContent = {
         ],
         certifications:
           "CompTIA A+ · CompTIA Network+ · ITIL Foundation (IT Service Management) · Microsoft 365 Modern Work · HDI Support Center Analyst",
+      },
+      {
+        icon: "lightbulb",
+        name: "Software Selection & IT Consulting",
+        summary:
+          "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions.",
+        extended:
+          "We assess your current systems, diagnose what is holding you back, and build a roadmap aligned to your business goals. For software selection, we run a structured, vendor-neutral evaluation across 100+ systems — we aligned the software with your business needs with no vendor incentives influencing the outcome.",
+        bullets: [
+          "In-depth analysis of existing IT systems, infrastructure, and security posture",
+          "Diagnosis of IT weaknesses, bottlenecks, and gaps",
+          "Strategic technology roadmap with timeline and budget guidance",
+          "Transparent cost analysis for all recommended solutions",
+          "Vendor-neutral software selection: requirements definition, RFP management, vendor scoring, and demo oversight",
+          "Structured deliverables at every stage — process maps, requirements lists, vendor scorecards, final recommendation reports",
+        ],
+        certifications:
+          "IIBA — Certified Business Analysis Professional (CBAP) · PMI — Project Management Professional (PMP) · TOGAF (Enterprise Architecture Framework) · Oracle Certified Partner · SAP Partner Ecosystem — 25+ years · Microsoft Solutions Partner experience",
       },
       {
         icon: "shield",
@@ -96,26 +114,8 @@ const managedIT: LandingPageContent = {
           "CompTIA Security+ · Veeam Certified Engineer (VMCE) · AWS Certified Cloud Practitioner · Microsoft Azure Fundamentals (AZ-900) · DRII — Associate Business Continuity Professional (ABCP)",
       },
       {
-        icon: "lightbulb",
-        name: "Software Selection & IT Consulting",
-        summary:
-          "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions.",
-        extended:
-          "We assess your current systems, diagnose what is holding you back, and build a roadmap aligned to your business goals. For software selection, we run a structured, vendor-neutral evaluation across 100+ systems — we aligned the software with your business needs with no vendor incentives influencing the outcome.",
-        bullets: [
-          "In-depth analysis of existing IT systems, infrastructure, and security posture",
-          "Diagnosis of IT weaknesses, bottlenecks, and gaps",
-          "Strategic technology roadmap with timeline and budget guidance",
-          "Transparent cost analysis for all recommended solutions",
-          "Vendor-neutral software selection: requirements definition, RFP management, vendor scoring, and demo oversight",
-          "Structured deliverables at every stage — process maps, requirements lists, vendor scorecards, final recommendation reports",
-        ],
-        certifications:
-          "IIBA — Certified Business Analysis Professional (CBAP) · PMI — Project Management Professional (PMP) · TOGAF (Enterprise Architecture Framework) · Oracle Certified Partner · SAP Partner Ecosystem — 25+ years · Microsoft Solutions Partner experience",
-      },
-      {
         icon: "clipboard",
-        name: "Project Management & Implementation",
+        name: "Project Management & IT Implementation",
         summary:
           "End-to-end IT project delivery. From scope definition to go-live, we plan, coordinate, and deliver your IT projects as a full-service IT solutions provider.",
         extended:
@@ -162,7 +162,7 @@ const managedIT: LandingPageContent = {
     eyebrow: "The Silverthaw Advantage",
     headingLines: ["The Only Partner", "That Grows", "With You."],
     subheadline:
-      "If your business is starting to slow down due to tech limitations — your team interrupted by outages, operations stalling from the wrong software and tools, security that feels like a gap nobody owns, and no IT roadmap or strategic direction to move forward — it is time to stop managing technology yourself and hand it to a full team of specialists. Without the overhead of building one internally.",
+      "Technology should move your business forward, not hold it back. Silverthaw's team of IT experts give you the execution and strategic direction to make better technology decisions from the start.",
     cards: [
       {
         label: "24/7 Coverage.\nEvery Layer.",
