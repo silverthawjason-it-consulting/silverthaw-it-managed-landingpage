@@ -17,7 +17,7 @@ const managedIT: LandingPageContent = {
     subheadline:
       "We build custom IT solutions that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
     body:
-      "One dedicated team of IT experts covering everything your business needs from a managed IT services provider — IT consulting, software selection, cybersecurity and network monitoring, data backup, IT project management and implementation, and day-to-day helpdesk support, all under one roof.",
+      "One dedicated team of IT experts covering everything your business needs from a managed IT services — Outsourced IT department, IT consulting, software selection, cybersecurity and network monitoring, data and recovery backup, IT project management, and day-to-day IT support, all under one roof.",
     primaryCta: "Book Your Free Consultation",
     secondaryCta: "See Our Services",
     socialProofStrong: "Certified Managed IT Providers",
