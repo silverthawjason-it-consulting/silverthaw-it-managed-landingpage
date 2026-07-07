@@ -10,37 +10,40 @@ const itSupportSmallBusiness: LandingPageContent = {
     title:
       "IT Support for Small Businesses in Toronto & Ontario | Silverthaw Consulting",
     description:
-      "Silverthaw Consulting delivers dependable IT support for small businesses across Toronto, Ontario, and the Greater Toronto Area. Helpdesk, cybersecurity, and on-site help. One partner, full accountability.",
+      "Looking for IT support for your small business in Ontario? Silverthaw becomes your dedicated IT team — helpdesk, cybersecurity, cloud, data backup, software guidance, and day-to-day support, all handled by one team. Book a free consultation today.",
   },
 
   hero: {
-    eyebrow: "Ontario · {location} · IT Support for Small Business",
+    eyebrow: "Ontario · {location} · IT Support for Small Businesses",
     headlinePrefix: "IT Support for Small Businesses in",
     subheadline:
       "We build custom IT support plans that fit your unique business challenges — so you can focus on growing your business, knowing your technology is handled, protected, and scaling with you.",
     body:
-      "One dedicated team of IT experts covering everything your small business needs from an IT support provider — IT consulting, software selection, cybersecurity and network monitoring, data backup, IT project management and implementation, and day-to-day helpdesk support, all under one roof.",
+      "One dedicated team of IT experts covering everything your small business needs from an IT support provider — Outsourced helpdesk, IT consulting, software selection, cybersecurity and network monitoring, data and recovery backup, IT project management, and day-to-day IT support, all under one roof.",
     primaryCta: "Book Your Free Consultation",
-    secondaryCta: "See How We Help",
-    socialProofStrong: "Trusted by Ontario businesses",
-    socialProofSub: "Small Business IT Support Experts",
-    chip1: { eyebrow: "Protection", title: "24/7 Security\nMonitoring" },
-    chip2: { eyebrow: "Our Approach", title: "Responsive,\nNot Reactive" },
+    secondaryCta: "See Our Services",
+    socialProofStrong: "Certified IT Support Specialists",
+    socialProofSub: "25+ Years Enterprise IT Experience · Supporting Toronto and Ontario Small Businesses",
+    chip1: { eyebrow: "Protected", title: "Certified\nIT Experts" },
+    chip2: { eyebrow: "#1 Trusted\nIT Support", title: "25+ Years in\n Enterprise IT Solutions" },
   },
 
   services: {
-    eyebrow: "How We Help",
-    headingLines: ["Everything Your Small", "Business Needs. One Team."],
+    eyebrow: "Our Services",
+    headingLines: [
+      "Your IT. Fully Supported.",
+      "Every Layer of Your Business.",
+    ],
     subheadline:
-      "IT support, helpdesk, IT consulting, and cybersecurity built for small and medium businesses. From everyday helpdesk requests to long-term technology guidance, Silverthaw supports the full lifecycle.",
+      "Silverthaw delivers complete IT support for Ontario small businesses including outsourced helpdesk services, IT consulting & ERP software selection, cybersecurity and network protection, data backup and disaster recovery, all under one dedicated team.",
     items: [
       {
         icon: "monitor",
         name: "Small Business IT Support",
         summary:
-          "Your complete outsourced support desk in Toronto and across Ontario: responsive helpdesk, proactive monitoring, vulnerability management, and on-site help. Issues resolved before your team notices them.",
+          "Your complete outsourced support desk - responsive helpdesk, IT cloud management, cybersecurity and network protection across all technology layers of your business.",
         extended:
-          "We begin with an assessment of your current environment and where your business is headed. From there, the Silverthaw team build an IT support package tailored to your operations, then take full ownership of your technology: helpdesk, security, infrastructure, and day-to-day support.",
+          "We start by understanding your business — where you are today and where you are headed. From there we build an IT support package tailored to your specific operations and needs. We then supervise and take full ownership of your technology: helpdesk, security, infrastructure, and day-to-day support.",
         bullets: [
           "Real-time help desk support via phone, email, and ticketing, with average response time under 15 minutes",
           "24/7 network monitoring for uptime, performance, and security",
@@ -51,91 +54,108 @@ const itSupportSmallBusiness: LandingPageContent = {
           "Secure remote access for hybrid and remote teams",
           "Monthly IT status updates and quarterly technology reviews included",
         ],
+        certifications:
+          "CompTIA A+ · CompTIA Network+ · ITIL Foundation (IT Service Management) · Microsoft 365 Modern Work · HDI Support Center Analyst",
       },
       {
         icon: "lightbulb",
         name: "IT Consulting & Software Selection",
         summary:
-          "Practical IT guidance for small businesses backed by 25+ years on the vendor side, at Oracle, SAP, and across the Ontario partner ecosystem. We assess your systems, identify what is holding you back, and map the right path forward.",
+          "Practical IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions.",
         extended:
-          "We bridge the gap between everyday business needs and technical execution. By running a clear, vendor-neutral selection process, we shield your small business from vendor bias. This keeps your technology spending focused strictly on your operational needs and ROI, giving you the exact systems you need to grow, minus the sales pitch.",
+          "We assess your current systems, diagnose what is holding you back, and build a roadmap aligned to your business goals. For software selection, we run a structured, vendor-neutral evaluation across 100+ systems — we aligned the software with your business needs with no vendor incentives influencing the outcome.",
         bullets: [
-          "In-depth analysis of your existing IT systems and infrastructure and security posture",
-          "Diagnosis of IT weaknesses, bottlenecks, and security gaps",
-          "Practical technology roadmap with timeline, budget guidance, and defined next steps",
-          "Transparent quoting and cost analysis for recommended solutions",
-          "Vendor-neutral software selection: requirements definition, request for proposal management, vendor scoring, and demo oversight across 100+ systems",
-          "IT consulting deliverables at every stage: process maps, requirements lists, vendor scorecards, and final selection reports",
+          "In-depth analysis of existing IT systems, infrastructure, and security posture",
+          "Diagnosis of IT weaknesses, bottlenecks, and gaps",
+          "Practical technology roadmap with timeline and budget guidance",
+          "Transparent cost analysis for all recommended solutions",
+          "Vendor-neutral software selection: requirements definition, RFP management, vendor scoring, and demo oversight",
+          "Structured deliverables at every stage — process maps, requirements lists, vendor scorecards, final recommendation reports",
         ],
+        certifications:
+          "IIBA — Certified Business Analysis Professional (CBAP) · PMI — Project Management Professional (PMP) · TOGAF (Enterprise Architecture Framework) · Oracle Certified Partner · SAP Partner Ecosystem — 25+ years · Microsoft Solutions Partner experience",
+      },
+      {
+        icon: "shield",
+        name: "Cybersecurity & Network Protection",
+        summary:
+          "Continuous threat monitoring and cybersecurity management for your devices, network, email, and credentials. Stay protected around the clock with our managed cybersecurity services.",
+        extended:
+          "Small businesses are the primary targets for cyberattacks precisely because they're unprotected. We deploy a multi-layer security stack across your entire environment: endpoint protection, perimeter defense, email security, and credential monitoring. When a threat appears, we contain it, restore your systems, and document exactly what happened.",
+        bullets: [
+          "Advanced threat detection and real-time incident response",
+          "Managed antivirus, anti-malware, and endpoint protection across all devices",
+          "Firewall configuration, continuous monitoring, and ongoing management",
+          "Network segmentation and access control",
+          "Email security with phishing protection and spam filtering",
+          "Anti-phishing awareness training for your team",
+          "Dark web monitoring for compromised credentials",
+          "Regular security audits, compliance assessments, and ransomware response planning",
+        ],
+        certifications:
+          "CompTIA Security+ · CompTIA CySA+ · Certified Ethical Hacker (CEH) · CISM (Certified Information Security Manager) · CISSP (Certified Information Systems Security Professional) · NIST Cybersecurity Framework · PIPEDA-compliant practices",
+      },
+      {
+        icon: "database",
+        name: "Data Backup & Disaster Recovery",
+        summary:
+          "Automated, encrypted backup and tested disaster recovery built around your operations so your business is protected from ransomware, cyberattacks, hardware failure, or physical disaster.",
+        extended:
+          "We start by understanding what data drives your business and how it flows across your operations. From there we design a tailored data retention and disaster recovery plan covering on-premises and cloud environments — so your data is always recoverable and your operations stay uninterrupted.",
+        bullets: [
+          "Disaster recovery planning and network documentation",
+          "Data categorization and storage roadmaps",
+          "Automated, encrypted backup and recovery across local and cloud storage",
+          "Off-site and cloud storage for maximum redundancy",
+          "Fast file transfer and restoration — including large files, sensitive records, and intellectual property",
+          "Recovery from ransomware, cyberattack, theft, fire, and hardware failure",
+          "Regulatory compliance support through responsible data management",
+          "Ongoing monitoring and defined recovery time and recovery point objectives",
+        ],
+        certifications:
+          "CompTIA Security+ · Veeam Certified Engineer (VMCE) · AWS Certified Cloud Practitioner · Microsoft Azure Fundamentals (AZ-900) · DRII — Associate Business Continuity Professional (ABCP)",
+      },
+      {
+        icon: "clipboard",
+        name: "Project Management & IT Implementation",
+        summary:
+          "End-to-end IT project delivery. From scope definition to go-live, we plan, coordinate, and deliver your IT projects as a full-service IT support partner.",
+        extended:
+          "We start by understanding your project goals, complexity, and timeline. From there we manage the full project lifecycle: scope, budget, timeline, team coordination, and delivery.",
+        bullets: [
+          "Project scope definition and collaborative planning — requirements documented before work begins",
+          "Strategic budgeting across systems, infrastructure, and resources",
+          "Detailed project roadmap with milestones, timelines, and accountable owners",
+          "End-to-end implementation of hardware, software, and network systems",
+          "Smart office deployment — meeting systems, telephony, workstation rollouts, server installation",
+          "Staff training, physical infrastructure, and post-launch IT handoff",
+          "Proactive post-delivery maintenance and future-proofing recommendations",
+        ],
+        certifications:
+          "PMP — Project Management Professional · CompTIA Project+ · PRINCE2 Foundation · ITIL Foundation (Service Transition) · Oracle and SAP implementation experience across enterprise deployments",
       },
       {
         icon: "rocket",
         name: "IT Setup & Support for New Businesses",
         summary:
-          "Launch with dependable IT support for your small business in place from day one. We build your technology foundation across hardware, software, cloud, and security, so it stays lean, protected, and ready to scale from the moment you open the doors.",
+          "Complete IT foundation for new businesses — hardware, software, cloud, and security set up correctly from day one and supported on an ongoing basis as your business grows.",
         extended:
-          "Getting your technology right at the start saves years of costly fixes later. We set up your complete IT foundation and provide ongoing small business IT support so your business is operational, protected, and ready to grow, all without building an internal team to manage it.",
+          "We start with a conversation about your business — your goals, your team, and where you are headed. From there we build and support your entire IT environment so you can focus on building your business from day one without technology slowing you down.",
         bullets: [
           "Website domain registration and hosting setup",
-          "Workstation and server procurement, deployment, and configuration for your team",
-          "Microsoft 365, business email, and cloud backup, fully set up and secured",
-          "Endpoint protection and data security built into your systems from day one",
-          "IT help desk support via phone, email, and remote access immediately available to your team",
+          "Point-of-sale systems and time management tools",
+          "Workstation and server procurement, deployment, and configuration",
+          "Microsoft 365, business email, and cloud backup — fully configured and secured",
+          "Endpoint protection and data security across all devices from day one",
+          "Helpdesk support via phone, email, and ticketing — available immediately",
+          "Remote and on-site support",
           "Dark web monitoring and anti-phishing awareness training",
-          "Employee onboarding/offboarding and disaster recovery planning",
-          "Monthly IT status updates and quarterly technology planning as your business grows",
+          "Disaster recovery planning",
+          "Employee onboarding and offboarding IT processes",
+          "Monthly IT status updates and quarterly technology planning",
         ],
-      },
-      {
-        icon: "clipboard",
-        name: "Project Management & Implementation",
-        summary:
-          "From scope to go-live, we plan, coordinate, and deliver your IT projects as a hands-on small business IT partner. On time, on budget, with a dedicated project lead accountable for every task.",
-        extended:
-          "IT projects fail when no one owns the full picture. Silverthaw does. Whether you're building out a new office, deploying a business system, expanding a department, or rolling out new infrastructure, we manage the entire project as your dedicated small business IT support partner: scope, budget, timeline, team coordination, and delivery. You stay informed at every stage. We handle everything in between.",
-        bullets: [
-          "Project scope definition and collaborative planning",
-          "Strategic budgeting across systems, infrastructure, and personnel resources",
-          "Detailed project roadmap with milestones, timelines, and accountable owners at each stage",
-          "End-to-end implementation of hardware, software, and network systems",
-          "Smart office deployment: meeting systems, telephony, workstation rollouts, secure server installation",
-          "Comprehensive training and ongoing support after go-live",
-          "Professional cable management and physical infrastructure optimization",
-        ],
-      },
-      {
-        icon: "shield",
-        name: "Cybersecurity & Protection",
-        summary:
-          "Continuous cybersecurity for your data, devices, and team, monitored around the clock and managed on your behalf. Enterprise-grade protection for small businesses without the enterprise-grade budget.",
-        extended:
-          "Small businesses are the primary targets for cyberattacks, precisely because most are underprotected. Silverthaw wraps a managed security layer around your entire technology environment: devices, email, network, and credentials. Your team keeps working. Your systems stay protected. And when a threat appears, our IT support team responds immediately.",
-        bullets: [
-          "Advanced threat detection and real-time incident response",
-          "Managed antivirus, anti-malware, and endpoint protection across all devices",
-          "Firewall configuration, continuous monitoring, and ongoing management",
-          "Email security with phishing protection and spam filtering",
-          "Anti-phishing awareness training for your team",
-          "Dark web monitoring to detect compromised credentials",
-          "Regular security audits, compliance assessments, and ransomware response planning",
-        ],
-      },
-      {
-        icon: "database",
-        name: "Data Retention & Disaster Recovery",
-        summary:
-          "Your data survives anything: ransomware, hardware failure, or a server room flood. Tested backup and recovery built around your operations, so your business keeps running when the unexpected happens.",
-        extended:
-          "A backup that has never been tested is not a backup. It is an assumption. Silverthaw designs, automates, and regularly tests your entire backup and disaster recovery setup as part of your small business IT support. When data loss or an outage occurs, your business is back online fast, with your data intact and your operations uninterrupted.",
-        bullets: [
-          "Automated, encrypted backups, both local and cloud-based",
-          "Disaster recovery plans designed around your specific operations",
-          "Regular testing of backup integrity and restore processes",
-          "Fast recovery options to minimize downtime after any incident",
-          "Off-site and cloud storage for complete redundancy across physical and digital threats",
-          "Network and recovery procedure documentation",
-          "Scalable backup architecture that grows with your data volume and business complexity",
-        ],
+        certifications:
+          "CompTIA A+ · CompTIA Network+ · Microsoft 365 Certified Fundamentals · Google Workspace Administrator · HDI Support Center Analyst",
       },
     ],
   },
@@ -144,7 +164,7 @@ const itSupportSmallBusiness: LandingPageContent = {
     eyebrow: "The Silverthaw Advantage",
     headingLines: ["The Only Partner", "That Grows", "With You."],
     subheadline:
-      "IT support for small businesses isn't a stopgap. It's the model built for how small companies actually scale. One responsive partner, a full team of specialists across every layer of technology, without the overhead of hiring and managing in-house staff. A fraction of the cost of building it yourself.",
+      "Technology should move your small business forward, not hold it back. Silverthaw's team of IT experts give you the hands-on support and practical direction to make better technology decisions from the start.",
     cards: [
       {
         label: "24/7 Coverage.\nEvery Layer.",
@@ -156,7 +176,7 @@ const itSupportSmallBusiness: LandingPageContent = {
         label: "A Full Team.\nA Fraction of the Cost.",
         stat: "60%+",
         statLabel: "avg. savings vs. in-house",
-        body: "Hiring internal IT in Ontario means $60,000+ per person, and each one covers only two or three disciplines. Silverthaw brings helpdesk, cybersecurity, cloud, networking, and practical guidance under one predictable monthly investment. More capability, no recruitment overhead, and a cost structure that actually scales with your small business.",
+        body: "Hiring an internal IT person in Ontario means $60,000+ per hire, and each person covers only two or three disciplines. Silverthaw brings cybersecurity, cloud, networking, compliance, and helpdesk support under one predictable monthly investment. More capability, no recruitment overhead, and a cost structure that actually scales with your small business.",
       },
       {
         label: "Grows With\nYour Business.",
@@ -189,7 +209,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       },
       {
         q: "We can't justify the cost right now.",
-        a: "What's it costing you not to have it? Owner time spent troubleshooting technology. Downtime during your busiest periods. Security gaps with no one watching. Our IT support is typically less than half the cost of a single internal IT hire, and you get a full team, not one person, with no overhead.",
+        a: "What's it costing you not to have it? Owner time spent troubleshooting technology. Downtime during critical periods. Security vulnerabilities with no one watching. Our IT support is typically less than half the cost of a single internal IT hire, and you get a full team, not one person, with no overhead.",
       },
       {
         q: "We're probably too small for IT support.",
