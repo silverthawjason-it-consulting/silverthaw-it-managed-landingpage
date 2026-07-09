@@ -39,6 +39,7 @@ const itSupportSmallBusiness: LandingPageContent = {
     items: [
       {
         icon: "monitor",
+        slug: "managed-it",
         name: "Small Business IT Support",
         summary:
           "Your complete outsourced support desk - responsive helpdesk, IT cloud management, cybersecurity and network protection across all technology layers of your business.",
@@ -59,6 +60,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       },
       {
         icon: "lightbulb",
+        slug: "it-consulting",
         name: "IT Consulting & Software Selection",
         summary:
           "Practical IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions.",
@@ -77,6 +79,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       },
       {
         icon: "shield",
+        slug: "cybersecurity",
         name: "Cybersecurity & Network Protection",
         summary:
           "Continuous threat monitoring and cybersecurity management for your devices, network, email, and credentials. Stay protected around the clock with our managed cybersecurity services.",
@@ -97,6 +100,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       },
       {
         icon: "database",
+        slug: "data-backup",
         name: "Data Backup & Disaster Recovery",
         summary:
           "Automated, encrypted backup and tested disaster recovery built around your operations so your business is protected from ransomware, cyberattacks, hardware failure, or physical disaster.",
@@ -117,6 +121,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       },
       {
         icon: "clipboard",
+        slug: "it-projects",
         name: "Project Management & IT Implementation",
         summary:
           "End-to-end IT project delivery. From scope definition to go-live, we plan, coordinate, and deliver your IT projects as a full-service IT support partner.",
@@ -136,6 +141,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       },
       {
         icon: "rocket",
+        slug: "new-business-it",
         name: "IT Setup & Support for New Businesses",
         summary:
           "Complete IT foundation for new businesses — hardware, software, cloud, and security set up correctly from day one and supported on an ongoing basis as your business grows.",

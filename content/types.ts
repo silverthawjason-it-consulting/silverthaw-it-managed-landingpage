@@ -38,6 +38,12 @@ export type HeroContent = {
 
 export type ServiceItem = {
   icon: IconKey;
+  /**
+   * Stable URL-fragment anchor for deep links (Google Ads sitelinks).
+   * Must be identical across A/B variants so one set of `#slug` URLs
+   * works on every landing page.
+   */
+  slug: string;
   name: string;
   summary: string;
   extended: string;

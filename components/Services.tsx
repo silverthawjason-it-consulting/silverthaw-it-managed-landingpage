@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import type { ServicesContent, ServiceItem } from "@/content/types";
 
 const S = {
@@ -107,6 +107,35 @@ export default function Services({ content }: { content: ServicesContent }) {
 
   const [open, setOpen] = useState<number | null>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const desktopRef = useRef<HTMLDivElement | null>(null);
+
+  // Deep links from Google Ads sitelinks — `#managed-it` or `?svc=managed-it`:
+  // on desktop only the active tab's detail is rendered, so a deep link has
+  // to select the tab (and expand the card on mobile) rather than rely on a
+  // native anchor jump. The `svc` query param is a fallback for the hash:
+  // fragments are never sent to the server and can be dropped by redirect
+  // chains, while query params survive.
+  useEffect(() => {
+    function applyDeepLink() {
+      const slug =
+        window.location.hash.slice(1) ||
+        new URLSearchParams(window.location.search).get("svc");
+      if (!slug) return;
+      const i = content.items.findIndex((svc) => svc.slug === slug);
+      if (i === -1) return;
+      setActiveIndex(i);
+      setOpen(i);
+      setTimeout(() => {
+        const target = window.matchMedia("(min-width: 1024px)").matches
+          ? desktopRef.current
+          : itemRefs.current[i];
+        target?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 120);
+    }
+    applyDeepLink();
+    window.addEventListener("hashchange", applyDeepLink);
+    return () => window.removeEventListener("hashchange", applyDeepLink);
+  }, [content.items]);
 
   function handleToggle(i: number) {
     const isNowOpening = open !== i;
@@ -149,6 +178,7 @@ export default function Services({ content }: { content: ServicesContent }) {
             return (
               <div
                 key={svc.name}
+                id={svc.slug}
                 ref={(el) => { itemRefs.current[i] = el; }}
                 onClick={() => handleToggle(i)}
                 className="group cursor-pointer rounded-card bg-silver-bg p-6 shadow-soft transition-[transform,box-shadow] duration-[.25s] ease-in-out hover:scale-[0.97] hover:shadow-none scroll-mt-24 sm:p-7"
@@ -230,7 +260,10 @@ export default function Services({ content }: { content: ServicesContent }) {
         </div>
 
         {/* ---- Wide tablet / desktop: vertical tabs (>=lg) ---- */}
-        <div className="reveal d1 hidden overflow-hidden rounded-card border border-silver-line shadow-soft lg:grid lg:grid-cols-[28%_1fr]">
+        <div
+          ref={desktopRef}
+          className="reveal d1 hidden scroll-mt-24 overflow-hidden rounded-card border border-silver-line shadow-soft lg:grid lg:grid-cols-[28%_1fr]"
+        >
           {/* Left: nav list */}
           <div className="border-r border-silver-line bg-silver-bg py-3">
             {content.items.map((svc, i) => {

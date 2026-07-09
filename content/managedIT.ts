@@ -37,6 +37,7 @@ const managedIT: LandingPageContent = {
     items: [
       {
         icon: "monitor",
+        slug: "managed-it",
         name: "Managed IT Services",
         summary:
           "Your complete outsourced IT department - remote helpdesk support, IT cloud management, cybersecurity and network protection across all technology layers of your business.",
@@ -57,6 +58,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "lightbulb",
+        slug: "it-consulting",
         name: "Software Selection & IT Consulting",
         summary:
           "Strategic IT assessment, technology roadmapping, and vendor-neutral software selection — backed by 25+ years on the vendor side in Enterprise IT Solutions.",
@@ -75,6 +77,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "shield",
+        slug: "cybersecurity",
         name: "Cybersecurity & Network Protection",
         summary:
           "Continuous threat monitoring and cybersecurity management for your devices, network, email, and credentials. Stay protected around the clock with our managed cybersecurity services.",
@@ -95,6 +98,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "database",
+        slug: "data-backup",
         name: "Data Backup & Disaster Recovery",
         summary:
           "Automated, encrypted backup and tested disaster recovery built around your operations so your business is protected from ransomware, cyberattacks, hardware failure, or physical disaster.",
@@ -115,6 +119,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "clipboard",
+        slug: "it-projects",
         name: "Project Management & IT Implementation",
         summary:
           "End-to-end IT project delivery. From scope definition to go-live, we plan, coordinate, and deliver your IT projects as a full-service IT solutions provider.",
@@ -134,6 +139,7 @@ const managedIT: LandingPageContent = {
       },
       {
         icon: "rocket",
+        slug: "new-business-it",
         name: "IT Setup & Support for New Businesses",
         summary:
           "Complete IT foundation for new businesses — hardware, software, cloud, and security set up correctly from day one and managed on an ongoing basis as your business grows.",
