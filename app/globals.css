@@ -57,4 +57,21 @@
   .reveal.d5 {
     transition-delay: 0.42s;
   }
+
+  /* Carrusel móvil de reviews: scroll táctil sin barra visible */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* El auto-scroll JS del carrusel móvil también respeta esta preferencia
+   (ver components/Testimonials.tsx) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
 }

@@ -79,6 +79,29 @@ export type AdvantageContent = {
   closingCta: string;
 };
 
+export type ReviewItem = {
+  id: string;
+  /** "Lastname, F." — initials for the avatar chip are derived from this. */
+  authorName: string;
+  /** Long-form date, e.g. "June 21, 2023". */
+  date: string;
+  /** 1–5, rendered as filled stars. */
+  rating: number;
+  /** Short bold headline shown above the review body. */
+  title: string;
+  body: string;
+  /** Optional photo; when absent an initials chip is rendered. */
+  avatarUrl?: string;
+};
+
+export type TestimonialsContent = {
+  eyebrow: string;
+  /** Heading rendered one <br/>-separated line per array entry. */
+  headingLines: string[];
+  subheadline: string;
+  items: ReviewItem[];
+};
+
 export type FaqItem = { q: string; a: string };
 
 export type FaqContent = {
@@ -93,5 +116,6 @@ export type LandingPageContent = {
   hero: HeroContent;
   services: ServicesContent;
   advantage: AdvantageContent;
+  testimonials: TestimonialsContent;
   faq: FaqContent;
 };

@@ -27,7 +27,7 @@ export default function LandingPage({ location, content }: LandingPageProps) {
         <Advantage content={content.advantage} />
         <WhatToExpect />
         <About />
-        <Testimonials />
+        <Testimonials content={content.testimonials} />
         <Faq content={content.faq} />
         <Contact />
       </main>

@@ -204,6 +204,123 @@ const itSupportSmallBusiness: LandingPageContent = {
     closingCta: "See What This Looks Like for Your Business",
   },
 
+  testimonials: {
+    eyebrow: "Client Reviews",
+    headingLines: ["Trusted by Businesses", "Across Ontario."],
+    subheadline:
+      "What business owners say after making Silverthaw their dedicated IT partner.",
+    items: [
+      {
+        id: "harrison-e",
+        authorName: "Harrison, E.",
+        date: "March 14, 2024",
+        rating: 5,
+        title: "The right software, finally",
+        body:
+          "We were overwhelmed by the software options for our industry. Silverthaw guided us to the right fit and handled the entire transition, keeping it smooth, hassle-free, and built for growth.",
+      },
+      {
+        id: "kowalski-j",
+        authorName: "Kowalski, J.",
+        date: "November 2, 2025",
+        rating: 5,
+        title: "Security handled by experts",
+        body:
+          "Security was our top concern with outdated infrastructure. Silverthaw's certified experts secured our systems seamlessly, giving us the peace of mind to focus on our business instead of vulnerabilities.",
+      },
+      {
+        id: "bennett-m",
+        authorName: "Bennett, M.",
+        date: "June 21, 2023",
+        rating: 5,
+        title: "Downtime completely resolved",
+        body:
+          "System availability is everything in our line of work. Before Silverthaw, downtime constantly derailed us. Now their proactive monitoring keeps our operations running, uninterrupted.",
+      },
+      {
+        id: "nguyen-t",
+        authorName: "Nguyen, T.",
+        date: "February 18, 2026",
+        rating: 5,
+        title: "IT that scales with us",
+        body:
+          "As we expanded rapidly, we needed IT that could scale with us. Silverthaw delivered a clear roadmap and hands-on support, so our technology empowers our team instead of holding it back.",
+      },
+      {
+        id: "jenkins-r",
+        authorName: "Jenkins, R.",
+        date: "October 12, 2023",
+        rating: 5,
+        title: "A true turning point",
+        body:
+          "Keeping up with modern technology was a struggle until we found Silverthaw. They understood our bottlenecks and built a clear digitalization roadmap that made the transition seamless for our whole team.",
+      },
+      {
+        id: "gupta-a",
+        authorName: "Gupta, A.",
+        date: "January 19, 2026",
+        rating: 5,
+        title: "Legacy transition made simple",
+        body:
+          "Transitioning our legacy systems felt impossible until Silverthaw stepped in. Their strategic guidance made the digitalization of our operations simple, positioning us for long-term, secure growth.",
+      },
+      {
+        id: "anderson-m",
+        authorName: "Anderson, M.",
+        date: "March 15, 2024",
+        rating: 5,
+        title: "Hybrid work, zero friction",
+        body:
+          "Silverthaw set up secure remote access for our hybrid team with ease. Their helpdesk is fast and responsive, often fixing issues before we even notice them.",
+      },
+      {
+        id: "tremblay-s",
+        authorName: "Tremblay, S.",
+        date: "November 4, 2022",
+        rating: 5,
+        title: "Proactive, jargon-free support",
+        body:
+          "After evaluating several MSPs, we chose Silverthaw for cybersecurity and network support. Their technicians are knowledgeable and patient, explaining things clearly, and our downtime is now virtually nonexistent.",
+      },
+      {
+        id: "patel-k",
+        authorName: "Patel, K.",
+        date: "August 22, 2025",
+        rating: 5,
+        title: "Fast, dedicated resolution",
+        body:
+          "A workstation issue was killing my productivity, but the technician made it his mission to get me back online fast. Courteous, efficient, and a pleasure to work with.",
+      },
+      {
+        id: "rodriguez-l",
+        authorName: "Rodriguez, L.",
+        date: "February 10, 2026",
+        rating: 5,
+        title: "Three years of partnership",
+        body:
+          "Silverthaw has been our trusted IT partner for three years. They don't just fix what's broken. They proactively recommend scalable solutions that save us real time and money.",
+      },
+      {
+        id: "chen-w",
+        authorName: "Chen, W.",
+        date: "May 18, 2023",
+        rating: 5,
+        title: "Dependable service desk",
+        body:
+          "Even a brief outage disrupts our operations, so we rely on Silverthaw to keep things running. Every ticket connects us to a polite expert who resolves issues fast.",
+      },
+      {
+        id: "oconnor-s",
+        authorName: "O'Connor, S.",
+        date: "September 30, 2022",
+        rating: 5,
+        title: "Fragmented systems, overhauled",
+        body:
+          "Our IT was fragmented with poor data tracking before Silverthaw stepped in. Their hands-on, consultative approach delivered a secure setup built to scale with our business.",
+      },
+    ],
+  },
+
   faq: {
     eyebrow: "Questions We Hear",
     heading: "Common Concerns.",
