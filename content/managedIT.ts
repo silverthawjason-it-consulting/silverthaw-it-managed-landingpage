@@ -53,8 +53,6 @@ const managedIT: LandingPageContent = {
           "Secure remote access for hybrid and remote teams",
           "Monthly IT status updates and quarterly technology reviews included",
         ],
-        certifications:
-          "CompTIA A+ · CompTIA Network+ · ITIL Foundation (IT Service Management) · Microsoft 365 Modern Work · HDI Support Center Analyst",
       },
       {
         icon: "lightbulb",
@@ -72,8 +70,6 @@ const managedIT: LandingPageContent = {
           "Vendor-neutral software selection: requirements definition, RFP management, vendor scoring, and demo oversight",
           "Structured deliverables at every stage — process maps, requirements lists, vendor scorecards, final recommendation reports",
         ],
-        certifications:
-          "IIBA — Certified Business Analysis Professional (CBAP) · PMI — Project Management Professional (PMP) · TOGAF (Enterprise Architecture Framework) · Oracle Certified Partner · SAP Partner Ecosystem — 25+ years · Microsoft Solutions Partner experience",
       },
       {
         icon: "shield",
@@ -93,8 +89,6 @@ const managedIT: LandingPageContent = {
           "Dark web monitoring for compromised credentials",
           "Regular security audits, compliance assessments, and ransomware response planning",
         ],
-        certifications:
-          "CompTIA Security+ · CompTIA CySA+ · Certified Ethical Hacker (CEH) · CISM (Certified Information Security Manager) · CISSP (Certified Information Systems Security Professional) · NIST Cybersecurity Framework · PIPEDA-compliant practices",
       },
       {
         icon: "database",
@@ -114,8 +108,6 @@ const managedIT: LandingPageContent = {
           "Regulatory compliance support through responsible data management",
           "Ongoing monitoring and defined recovery time and recovery point objectives",
         ],
-        certifications:
-          "CompTIA Security+ · Veeam Certified Engineer (VMCE) · AWS Certified Cloud Practitioner · Microsoft Azure Fundamentals (AZ-900) · DRII — Associate Business Continuity Professional (ABCP)",
       },
       {
         icon: "clipboard",
@@ -134,8 +126,6 @@ const managedIT: LandingPageContent = {
           "Staff training, physical infrastructure, and post-launch IT handoff",
           "Proactive post-delivery maintenance and future-proofing recommendations",
         ],
-        certifications:
-          "PMP — Project Management Professional · CompTIA Project+ · PRINCE2 Foundation · ITIL Foundation (Service Transition) · Oracle and SAP implementation experience across enterprise deployments",
       },
       {
         icon: "rocket",
@@ -158,8 +148,6 @@ const managedIT: LandingPageContent = {
           "Employee onboarding and offboarding IT processes",
           "Monthly IT status updates and quarterly technology planning",
         ],
-        certifications:
-          "CompTIA A+ · CompTIA Network+ · Microsoft 365 Certified Fundamentals · Google Workspace Administrator · HDI Support Center Analyst",
       },
     ],
   },
