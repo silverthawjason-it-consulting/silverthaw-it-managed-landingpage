@@ -1,48 +1,50 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { getStoredAttribution } from "@/lib/attribution";
 
 /**
- * Standalone (non-embed) Zoho Bookings URL for the workspace. Opened
- * TOP-LEVEL in a new tab — NOT in an iframe. This is the only way to carry
- * gclid/utm_* attribution into the booking record: the standalone `/#/slug`
- * URL both prefills (`?Field=value` after the hash) and submits, but it sends
- * `X-Frame-Options: SAMEORIGIN` so it can't be embedded. The framable
- * `/portal-embed` URL is the opposite — embeds fine, but appending params to
- * it silently kills the desktop submit button. See memory:
+ * Standalone (non-embed) Zoho Bookings URL for the specific "Free 30 Minute
+ * IT Consultation" service (id 9508000000527050) — NOT the workspace-level
+ * URL, so it skips Zoho's service-picker step and opens straight to the
+ * calendar. Opened TOP-LEVEL in a new tab — NOT in an iframe. This is the
+ * only way to carry gclid/utm_* attribution into the booking record: the
+ * standalone URL both prefills (`?Field=value` after the hash) and submits,
+ * but it sends `X-Frame-Options: SAMEORIGIN` so it can't be embedded. The
+ * framable `/portal-embed` URL is the opposite — embeds fine, but appending
+ * params to it silently kills the desktop submit button. See memory:
  * zoho-bookings-setup / zoho-bookings-plain-iframe.
- *
- * NOTE: confirm this points at the specific consultation service (not just the
- * workspace landing). If Zoho gives you a service-direct standalone link, use
- * that here instead.
  */
 const BOOKING_BASE_URL =
-  "https://bookings.silverthaw.ca/#/silverthawconsultingltd";
+  "https://bookings.silverthaw.ca/9508000000527050/#/9508000000527050";
 
 /**
  * Builds the booking href with any stored attribution appended as query params
  * AFTER the hash (Zoho's prefill format). The param KEYS must match the field
  * names configured on the Zoho booking form for the values to land in the CRM
- * record — otherwise they're carried but ignored. Falls back to the clean base
- * URL when no attribution is stored / before hydration.
+ * record — otherwise they're carried but ignored.
+ *
+ * Read fresh on click (not baked into state at mount) so it isn't a race
+ * against UtmTracker, a sibling component that writes this same localStorage
+ * key independently — by the time a user actually clicks, UtmTracker has long
+ * since finished, but effect mount order between the two isn't guaranteed.
  */
+function buildHref(): string {
+  const attribution = getStoredAttribution();
+  const params = new URLSearchParams();
+  for (const [key, value] of Object.entries(attribution)) {
+    if (value) params.set(key, value);
+  }
+  const query = params.toString();
+  return query ? `${BOOKING_BASE_URL}?${query}` : BOOKING_BASE_URL;
+}
+
 export default function BookingButton() {
-  const [href, setHref] = useState(BOOKING_BASE_URL);
-
-  useEffect(() => {
-    const attribution = getStoredAttribution();
-    const params = new URLSearchParams();
-    for (const [key, value] of Object.entries(attribution)) {
-      if (value) params.set(key, value);
-    }
-    const query = params.toString();
-    setHref(query ? `${BOOKING_BASE_URL}?${query}` : BOOKING_BASE_URL);
-  }, []);
-
   return (
     <a
-      href={href}
+      href={BOOKING_BASE_URL}
+      onClick={(e) => {
+        e.currentTarget.href = buildHref();
+      }}
       target="_blank"
       rel="noopener noreferrer"
       className="group inline-flex w-full items-center justify-center gap-[9px] whitespace-nowrap rounded-full border-2 border-navy bg-navy px-[26px] py-[14px] text-[14px] font-semibold text-white transition-all duration-[.22s] hover:bg-transparent hover:text-navy"
