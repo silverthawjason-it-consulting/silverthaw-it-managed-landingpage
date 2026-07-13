@@ -57,8 +57,8 @@ export default function Contact() {
             Pick a Time That Works
           </h3>
           <p className="mb-7 text-[13px] text-ink-muted">
-            Serving Ontario businesses across the Greater Toronto Area and
-            beyond. Opens our secure booking page in a new tab.
+            Choose a time and day to book your free IT consultation. A secure
+            booking page will open in a new tab.
           </p>
 
           <BookingButton />

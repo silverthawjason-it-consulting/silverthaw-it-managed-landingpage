@@ -325,20 +325,32 @@ const managedIT: LandingPageContent = {
     subheadline: "Straightforward answers to the questions we hear most often.",
     items: [
       {
-        q: "We already have an IT company.",
-        a: "That's great. What are they doing proactively? Most providers handle tickets and keep the lights on. Silverthaw goes further: monthly status meetings, quarterly technology reviews, strategic roadmapping, and vendor-neutral software selection. If your current provider is delivering all of that, you're in excellent hands. If not, that's the gap we fill.",
+        q: "What does an outsourced IT department actually include?",
+        a: "Most people picture managed IT as help desk tickets and antivirus. Silverthaw runs as a full outsourced IT department, covering strategic planning, network monitoring, cybersecurity, cloud and infrastructure support, software selection, and end-user support. Unlike a break-fix vendor, we own every layer of your technology and the outcome it produces.",
       },
       {
-        q: "We can't justify the cost right now.",
-        a: "What's it costing you not to have it? Leadership time spent troubleshooting technology. Downtime during critical periods. Security vulnerabilities with no one watching. Our managed services are typically less than half the cost of a single internal IT hire, and you get a full team, not one person, with no overhead.",
+        q: "How much does outsourced IT support cost?",
+        a: "Cost depends on your team size, environment complexity, and which service pillars you need active first. Rather than a flat per-seat rate, we build a package around your current risk areas and growth plans, so you're not paying for coverage you don't need yet, with room to add services as you scale.",
       },
       {
-        q: "We're probably too small for managed IT.",
-        a: "That's actually when you need it most. Small businesses are the primary targets for cyberattacks precisely because they're unprotected. And the technology decisions you make now, about your systems, your security, your data practices, become the foundation everything else is built on. Getting it right from the start costs a fraction of fixing it later.",
+        q: "We already have someone handling IT. Why would we need you?",
+        a: "We love working alongside in-house teams. Think of us as a trusted extension of your IT department, covering strategic planning, security hardening, vendor management, and after-hours support. Your person gets real backup, and can focus on what only they know about your business.",
       },
       {
-        q: "We've handled IT ourselves until now.",
-        a: "You know your business better than anyone. But every hour spent troubleshooting email issues, chasing software updates, or worrying about cybersecurity is an hour you're not spending on growth. Our job is to take that entire burden off your plate completely, so you can focus on what you actually do best.",
+        q: "We're overwhelmed by software and vendor choices. Can you help us decide?",
+        a: "Yes, this is a common starting point for new clients. Instead of recommending whatever's easiest to sell, we start by understanding your actual bottlenecks, then guide you through selecting and implementing the tools that fit, handling the technical work end-to-end so the transition doesn't fall on your team.",
+      },
+      {
+        q: "We're growing fast. Can our IT infrastructure keep up?",
+        a: "Rapid growth is one of the most common reasons businesses come to us. Infrastructure built for ten people often breaks down at thirty or fifty, not because anything failed, but because it was never built to scale. We build a roadmap alongside your growth plans so technology stays ahead of the business instead of catching up.",
+      },
+      {
+        q: "Is managed IT better than in-house IT?",
+        a: "For most businesses, yes. Round-the-clock monitoring catches issues before they interrupt your operations, without the cost of building an internal team. A single in-house hire runs $60,000 or more a year and covers only a couple of disciplines. Silverthaw gives you a full team of specialists for one predictable monthly investment.",
+      },
+      {
+        q: "Do you provide managed IT services for small businesses?",
+        a: "Yes. We specialize in managed IT for small and growing businesses, and build our approach around the challenges you actually face, not a one-size-fits-all package. That includes proactive support, network management, cybersecurity, and cloud solutions, all built to help your business run smoother and scale without technology holding it back.",
       },
     ],
   },
