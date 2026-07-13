@@ -12,7 +12,7 @@ const CREDS: [string, string, string][] = [
   [
     "03",
     "Vendor-neutral software selection.",
-    " 25+ years at Oracle, SAP, and across the Ontario partner ecosystem means Jason evaluates the market without bias, and with real implementation experience",
+    " 25+ years working with businesses throughout Canada and the USA, including roles with SAP, Oracle, and others in the partner ecosystem, means Jason evaluates the market without bias, and with real implementation experience",
   ],
 ];
 
@@ -60,7 +60,7 @@ export default function About() {
           <div className="reveal d2 mb-[30px] text-[15.5px] leading-[1.82] text-ink-body [&>p+p]:mt-[14px]">
             <p>
               Jason Saunders has spent 25+ years at the intersection of enterprise technology and business strategy,
-              advising at Oracle, SAP, and across hundreds of Ontario companies at every stage of growth.
+              advising at Oracle, SAP, and across hundreds of Canadian and USA companies at every stage of growth.
             </p>
             <p>
               When you work with Silverthaw, Jason is your strategic IT advisor and the single point of accountability for everything Silverthaw delivers. He learns your business, defines your technology roadmap, and manages a dedicated team of IT specialists, including helpdesk, cybersecurity, infrastructure, and cloud, who execute on your behalf. You get the depth of a full IT department, guided by an advisor who understands your business goals, not just your ticket queue.

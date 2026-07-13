@@ -21,14 +21,14 @@ const PILLS: { label: string; desc: string; path: React.ReactNode }[] = [
   },
   {
     label: "Software Strategy",
-    desc: "vendor-neutral selection, implementation oversight, staff training",
+    desc: "vendor-neutral selection, implementation playbook and roadmap",
     path: (
       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
     ),
   },
   {
     label: "Helpdesk & IT Support",
-    desc: "live support with an average response under 15 minutes",
+    desc: "on-site or remote support with fast, reliable response times",
     path: <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />,
   },
   {

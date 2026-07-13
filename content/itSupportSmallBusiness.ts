@@ -35,7 +35,7 @@ const itSupportSmallBusiness: LandingPageContent = {
       "Every Layer of Your Business.",
     ],
     subheadline:
-      "Silverthaw delivers complete IT support for Ontario small businesses including outsourced helpdesk services, IT consulting & ERP software selection, cybersecurity and network protection, data backup and disaster recovery, all under one dedicated team.",
+      "Silverthaw delivers complete IT support for Canadian small businesses including outsourced helpdesk services, IT consulting & ERP software selection, cybersecurity and network protection, data backup and disaster recovery, all under one dedicated team.",
     items: [
       {
         icon: "monitor",
@@ -46,7 +46,7 @@ const itSupportSmallBusiness: LandingPageContent = {
         extended:
           "We start by understanding your business — where you are today and where you are headed. From there we build an IT support package tailored to your specific operations and needs. We then supervise and take full ownership of your technology: helpdesk, security, infrastructure, and day-to-day support.",
         bullets: [
-          "Real-time help desk support via phone, email, and ticketing, with average response time under 15 minutes",
+          "Real-time help desk support via phone, email, and ticketing, with fast response times you can count on",
           "24/7 network monitoring for uptime, performance, and security",
           "Remote IT support and troubleshooting resolved without disrupting your operations",
           "Server monitoring, performance tuning, and operating system vulnerability management",
