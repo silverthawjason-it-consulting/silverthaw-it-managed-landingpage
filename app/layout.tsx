@@ -1,13 +1,27 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Playfair_Display, Open_Sans } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 import UtmTracker from "@/components/UtmTracker";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, getProfessionalServiceSchema } from "@/lib/seo";
 import managedIT from "@/content/managedIT";
 
+/**
+ * GA4 (general/automatic tracking: pageviews, sessions) is installed here
+ * directly, alongside GTM (specific/custom event tagging — button clicks,
+ * form submits, etc.), both intentionally pointed at the same property so
+ * everything consolidates into one GA4 dataset.
+ *
+ * DUPLICATE-PAGEVIEW GUARDRAIL: when adding tags inside GTM
+ * (tagmanager.google.com) for this GA_ID, only ever use the "GA4 Event" tag
+ * type — never "GA4 Configuration". A Configuration tag re-initializes
+ * tracking and sends its own pageview, double-counting every visit against
+ * the pageview GoogleAnalytics already sends below. An Event tag just adds
+ * one data point to the tracking that's already running — safe to use freely.
+ */
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-XXXXXXX";
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-XXXXXXXXXX";
 
 // --f-serif: 'Playfair Display' — pesos usados en el diseño original
@@ -67,6 +81,7 @@ export default function RootLayout({
         </Suspense>
         <StructuredData data={getProfessionalServiceSchema()} />
         {children}
+        <GoogleTagManager gtmId={GTM_ID} />
         <GoogleAnalytics gaId={GA_ID} />
       </body>
     </html>
