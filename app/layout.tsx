@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Playfair_Display, Open_Sans } from "next/font/google";
-import { GoogleTagManager } from "@next/third-parties/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 import UtmTracker from "@/components/UtmTracker";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, getProfessionalServiceSchema } from "@/lib/seo";
 import managedIT from "@/content/managedIT";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-XXXXXXX";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-XXXXXXXXXX";
 
 // --f-serif: 'Playfair Display' — pesos usados en el diseño original
 const playfair = Playfair_Display({
@@ -67,7 +67,7 @@ export default function RootLayout({
         </Suspense>
         <StructuredData data={getProfessionalServiceSchema()} />
         {children}
-        <GoogleTagManager gtmId={GTM_ID} />
+        <GoogleAnalytics gaId={GA_ID} />
       </body>
     </html>
   );
