@@ -7,10 +7,9 @@ import type { LandingPageContent } from "./types";
  */
 const itSupportSmallBusiness: LandingPageContent = {
   meta: {
-    title:
-      "IT Support for Small Businesses in Toronto & Ontario | Silverthaw Consulting",
+    title: "IT Support for Small Businesses | Toronto & Ontario",
     description:
-      "Looking for IT support for your small business in Ontario? Silverthaw becomes your dedicated IT team — helpdesk, cybersecurity, cloud, data backup, software guidance, and day-to-day support, all handled by one team. Book a free consultation today.",
+      "Looking for IT support for small businesses in Ontario? Silverthaw is your IT team for helpdesk, cybersecurity, and data backup. Book a free consultation today.",
   },
 
   hero: {

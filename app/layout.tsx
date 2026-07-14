@@ -6,6 +6,7 @@ import "./globals.css";
 import StructuredData from "@/components/StructuredData";
 import UtmTracker from "@/components/UtmTracker";
 import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE, getProfessionalServiceSchema } from "@/lib/seo";
+import managedIT from "@/content/managedIT";
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID ?? "GTM-XXXXXXX";
 
@@ -26,9 +27,8 @@ const openSans = Open_Sans({
   display: "swap",
 });
 
-const DEFAULT_TITLE = "Managed IT Services Toronto & Ontario | Silverthaw Consulting";
-const DEFAULT_DESCRIPTION =
-  "Looking for managed IT services in Ontario? Silverthaw becomes your dedicated IT partner — helpdesk, cybersecurity, cloud, infrastructure, software selection, and IT advisory, all managed by one team. Book a free consultation today.";
+const DEFAULT_TITLE = managedIT.meta.title;
+const DEFAULT_DESCRIPTION = managedIT.meta.description;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

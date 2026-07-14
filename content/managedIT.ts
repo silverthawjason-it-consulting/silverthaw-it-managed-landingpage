@@ -6,9 +6,9 @@ import type { LandingPageContent } from "./types";
  */
 const managedIT: LandingPageContent = {
   meta: {
-    title: "Managed IT Services Toronto & Ontario | Silverthaw Consulting",
+    title: "Managed IT Services Toronto & Ontario | Silverthaw",
     description:
-      "Looking for managed IT services in Ontario? Silverthaw becomes your dedicated IT partner — helpdesk, cybersecurity, cloud, infrastructure, software selection, and IT advisory, all managed by one team. Book a free consultation today.",
+      "Looking for managed IT services in Ontario? Silverthaw is your IT partner for helpdesk, cybersecurity, and cloud support. Book a free consultation today.",
   },
 
   hero: {
