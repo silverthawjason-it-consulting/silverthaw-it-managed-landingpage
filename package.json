@@ -11,7 +11,9 @@
     "hero:lock": "node scripts/hero-photo.mjs lock",
     "hero:unlock": "node scripts/hero-photo.mjs unlock",
     "hero:reroll:legal": "node scripts/hero-photo.mjs reroll legal",
-    "hero:unlock:legal": "node scripts/hero-photo.mjs unlock legal"
+    "hero:unlock:legal": "node scripts/hero-photo.mjs unlock legal",
+    "hero:reroll:faces": "node scripts/hero-photo.mjs reroll faces",
+    "hero:unlock:faces": "node scripts/hero-photo.mjs unlock faces"
   },
   "dependencies": {
     "@next/third-parties": "^14.2.35",

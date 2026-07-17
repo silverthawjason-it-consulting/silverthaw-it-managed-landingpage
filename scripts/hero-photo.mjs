@@ -13,6 +13,14 @@
  *   npm run hero:lock -- <id> legal     -- pin the legal-page hero to that exact photo
  *   npm run hero:unlock:legal           -- resume random rotation for the legal-page hero
  *
+ * Some targets manage more than one photo (e.g. "faces", the 4 hero
+ * social-proof avatars). For those, reroll prints a batch of candidates and
+ * lock takes a comma-separated list matching that target's slot count:
+ *
+ *   npm run hero:reroll:faces                       -- fetch 4 candidate headshots
+ *   npm run hero:lock -- <id1>,<id2>,<id3>,<id4> faces -- pin all 4 avatar slots
+ *   npm run hero:unlock:faces                        -- reset all 4 slots
+ *
  * Talks to Unsplash directly (same calls as lib/unsplash.ts) so no Next.js
  * process or rebuild is needed just to preview candidates.
  */
@@ -21,7 +29,6 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const ORIENTATION = "landscape";
 
 const TARGETS = {
   main: {
@@ -29,12 +36,22 @@ const TARGETS = {
     lockFile: "lib/heroPhoto.ts",
     exportName: "LOCKED_HERO_PHOTO_ID",
     label: "main hero",
+    orientation: "landscape",
   },
   legal: {
     query: "privacy policy data security legal document law",
     lockFile: "lib/legalHeroPhoto.ts",
     exportName: "LOCKED_LEGAL_HERO_PHOTO_ID",
     label: "legal page hero",
+    orientation: "landscape",
+  },
+  faces: {
+    query: "professional headshot portrait",
+    lockFile: "lib/heroFacesPhoto.ts",
+    exportName: "LOCKED_HERO_FACE_PHOTO_IDS",
+    label: "hero social-proof avatars",
+    orientation: "squarish",
+    count: 4,
   },
 };
 
@@ -76,6 +93,22 @@ function printPhoto(photo) {
 }
 
 function writeLockFile(target, id) {
+  if (Array.isArray(id)) {
+    const idsArg = target.name === "faces" ? "<id1>,<id2>,<id3>,<id4>" : "<id1>,...";
+    const arrayLiteral = `[${id.map((v) => (v ? `"${v}"` : "null")).join(", ")}]`;
+    const content = `/**
+ * Hero photo locks for the ${target.label}. Set via
+ * \`npm run hero:lock -- ${idsArg} ${target.name}\`.
+ * Each entry pins that slot to an exact Unsplash photo. A \`null\` entry (or a
+ * failed fetch at render time) falls back to that slot's default content.
+ * Run \`npm run hero:unlock -- ${target.name}\` to reset all slots.
+ */
+export const ${target.exportName}: (string | null)[] = ${arrayLiteral};
+`;
+    writeFileSync(path.join(root, ...target.lockFile.split("/")), content, "utf8");
+    return;
+  }
+
   const lockArgs = target.name === "main" ? "<photo-id>" : `<photo-id> ${target.name}`;
   const content = `/**
  * Hero photo lock for the ${target.label}. Set via
@@ -94,33 +127,51 @@ try {
   if (command === "reroll") {
     // `reroll` has no <id> arg, so its optional target is the second arg.
     const target = resolveTarget(arg);
-    const photo = await unsplashGet("/photos/random", {
-      query: target.query,
-      orientation: ORIENTATION,
-    });
-    printPhoto(photo);
-    console.log(`\nLike this one? Run: npm run hero:lock -- ${photo.id}`);
+    const count = target.count ?? 1;
+    const params = { query: target.query, orientation: target.orientation };
+    if (count > 1) params.count = String(count);
+    const result = await unsplashGet("/photos/random", params);
+    const photos = Array.isArray(result) ? result : [result];
+    photos.forEach(printPhoto);
+    if (count > 1) {
+      console.log(`\nLike these? Run: npm run hero:lock -- ${photos.map((p) => p.id).join(",")} ${target.name}`);
+    } else {
+      console.log(`\nLike this one? Run: npm run hero:lock -- ${photos[0].id}`);
+    }
   } else if (command === "lock") {
     if (!arg) {
-      console.error("Usage: npm run hero:lock -- <photo-id> [target]");
+      console.error("Usage: npm run hero:lock -- <photo-id>[,<photo-id>,...] [target]");
       process.exit(1);
     }
     const target = resolveTarget(targetArg);
-    const photo = await unsplashGet(`/photos/${encodeURIComponent(arg)}`, {});
-    writeLockFile(target, photo.id);
-    printPhoto(photo);
+    const count = target.count ?? 1;
+    const ids = arg.split(",").map((s) => s.trim()).filter(Boolean);
+    if (ids.length !== count) {
+      console.error(`The "${target.name}" target needs exactly ${count} id(s), got ${ids.length}.`);
+      process.exit(1);
+    }
+    const photos = await Promise.all(
+      ids.map((id) => unsplashGet(`/photos/${encodeURIComponent(id)}`, {}))
+    );
+    writeLockFile(target, count > 1 ? photos.map((p) => p.id) : photos[0].id);
+    photos.forEach(printPhoto);
     console.log(`\nLocked the ${target.label}. Rebuild to see it on the site: npm run build`);
   } else if (command === "unlock") {
     // `unlock` has no <id> arg, so its optional target is the second arg.
     const target = resolveTarget(arg);
-    writeLockFile(target, null);
-    console.log(`Unlocked the ${target.label}. It will pull a new random photo on the next clean build.`);
+    const count = target.count ?? 1;
+    writeLockFile(target, count > 1 ? Array(count).fill(null) : null);
+    console.log(
+      count > 1
+        ? `Unlocked the ${target.label}. All ${count} slots fall back to their default content.`
+        : `Unlocked the ${target.label}. It will pull a new random photo on the next clean build.`
+    );
   } else {
     console.log(
       "Usage:\n" +
-        "  npm run hero:reroll [target]            preview a new random candidate\n" +
-        "  npm run hero:lock -- <id> [target]      lock that hero to a specific photo ID\n" +
-        "  npm run hero:unlock [target]            resume random rotation\n" +
+        "  npm run hero:reroll [target]                    preview new random candidate(s)\n" +
+        "  npm run hero:lock -- <id>[,<id>,...] [target]   lock that hero to specific photo ID(s)\n" +
+        "  npm run hero:unlock [target]                    reset that target's lock\n" +
         `\nValid targets: ${Object.keys(TARGETS).join(", ")} (default: main)`
     );
   }

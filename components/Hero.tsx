@@ -1,8 +1,11 @@
+import Image from "next/image";
 import UnsplashImage from "./UnsplashImage";
 import type { HeroContent } from "@/content/types";
 import { LOCKED_HERO_PHOTO_ID } from "@/lib/heroPhoto";
+import { LOCKED_HERO_FACE_PHOTO_IDS } from "@/lib/heroFacesPhoto";
+import { photoById } from "@/lib/unsplash";
 
-const FACES = ["LQ", "AC", "TS", "PH"];
+const FACE_FALLBACKS = ["LQ", "AC", "TS", "PH"];
 
 type HeroProps = {
   /** Ubicación inyectada por la ruta dinámica (Ads/A-B). Default: "Toronto". */
@@ -13,6 +16,9 @@ type HeroProps = {
 
 export default async function Hero({ location = "Toronto", content }: HeroProps) {
   const eyebrow = content.eyebrow.replace(/\{location\}/g, location);
+  const facePhotos = await Promise.all(
+    LOCKED_HERO_FACE_PHOTO_IDS.map((id) => (id ? photoById(id) : Promise.resolve(null)))
+  );
   return (
     <section
       id="hero"
@@ -85,16 +91,29 @@ export default async function Hero({ location = "Toronto", content }: HeroProps)
           {/* prueba social */}
           <div className="reveal d4 flex items-center gap-[14px]">
             <div className="flex">
-              {FACES.map((f, i) => (
-                <span
-                  key={f}
-                  className={`flex h-[34px] w-[34px] items-center justify-center rounded-full border-2 border-white/15 bg-navy-mid text-[11px] font-bold text-white/55 ${
-                    i === 0 ? "" : "-ml-[9px]"
-                  }`}
-                >
-                  {f}
-                </span>
-              ))}
+              {FACE_FALLBACKS.map((fallback, i) => {
+                const photo = facePhotos[i];
+                return (
+                  <span
+                    key={fallback}
+                    className={`relative flex h-[34px] w-[34px] items-center justify-center overflow-hidden rounded-full border-2 border-white/15 bg-navy-mid text-[11px] font-bold text-white/55 ${
+                      i === 0 ? "" : "-ml-[9px]"
+                    }`}
+                  >
+                    {photo ? (
+                      <Image
+                        src={photo.smallUrl}
+                        alt=""
+                        fill
+                        sizes="34px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      fallback
+                    )}
+                  </span>
+                );
+              })}
             </div>
             <p className="text-[12.5px] leading-[1.5] text-white/[0.48]">
               <strong className="block text-white/[0.85]">
@@ -103,6 +122,19 @@ export default async function Hero({ location = "Toronto", content }: HeroProps)
               {content.socialProofSub}
             </p>
           </div>
+          {facePhotos.some(Boolean) && (
+            <p className="reveal d4 mt-2 text-[9.5px] text-white/25">
+              Team photos via{" "}
+              <a
+                href="https://unsplash.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white/40"
+              >
+                Unsplash
+              </a>
+            </p>
+          )}
         </div>
 
         {/* ---- Derecha: visual con foto Unsplash ---- */}
